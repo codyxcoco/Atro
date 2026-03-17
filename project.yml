@@ -1,0 +1,73 @@
+name: LiftJournal
+options:
+  createIntermediateGroups: true
+  defaultConfig: Debug
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    SWIFT_VERSION: 6.0
+    TARGETED_DEVICE_FAMILY: "1"
+    SUPPORTS_MACCATALYST: NO
+    DEVELOPMENT_ASSET_PATHS: "\"LiftJournal/Preview\""
+targets:
+  LiftJournal:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: LiftJournal
+        excludes:
+          - Resources
+      - path: LiftJournal/Resources/Assets.xcassets
+        buildPhase: resources
+    info:
+      path: LiftJournal/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Lift Journal
+        UIApplicationSupportsIndirectInputEvents: true
+        UIUserInterfaceStyle: Automatic
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        CFBundleURLTypes:
+          - CFBundleTypeRole: Editor
+            CFBundleURLName: LiftJournal
+            CFBundleURLSchemes:
+              - liftjournal
+        NSCalendarsWriteOnlyAccessUsageDescription: Lift Journal can add your planned workouts to Calendar when you choose to sync them.
+        NSHealthShareUsageDescription: Lift Journal can read your workout and activity context to keep Today simple and personal.
+        NSHealthUpdateUsageDescription: Lift Journal can write completed workouts and optional mood reflections to Health when you enable it.
+    entitlements:
+      path: LiftJournal/Resources/LiftJournal.entitlements
+    dependencies:
+      - sdk: EventKit.framework
+      - sdk: HealthKit.framework
+      - sdk: UIKit.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.codex.LiftJournal
+        PRODUCT_NAME: LiftJournal
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: LiftJournal/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: LiftJournal/Resources/LiftJournal.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+  LiftJournalTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - LiftJournalTests
+    dependencies:
+      - target: LiftJournal
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.codex.LiftJournalTests
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: YES
