@@ -24,6 +24,15 @@ struct StreakWidgetSnapshot: Codable, Hashable, Identifiable {
 
     var id: UUID { counterId }
 
+    var displayPhrase: String {
+        let trimmed = phrase.trimmingCharacters(in: .whitespacesAndNewlines)
+        let normalized = trimmed.lowercased()
+        if trimmed.isEmpty || normalized.hasPrefix("days without ") {
+            return "current streak"
+        }
+        return trimmed
+    }
+
     func recalculated(at date: Date = Date(), calendar: Calendar = .current) -> StreakWidgetSnapshot {
         var copy = self
         copy.currentStreakDays = StreakWidgetDateCalculator.fullCalendarDays(

@@ -26,7 +26,7 @@ final class StreakCounter {
         subtitle: String = "",
         phrase: String = "current streak",
         symbolName: String = "checkmark.seal",
-        iconColor: StreakIconColor = .sage,
+        iconColor: StreakIconColor = .accent,
         theme: StreakTheme = .recovery,
         lastIncidentDate: Date,
         goalDays: Int? = nil,
@@ -61,8 +61,17 @@ final class StreakCounter {
     }
 
     var iconColor: StreakIconColor {
-        get { StreakIconColor(rawValue: iconColorRawValue ?? "") ?? .sage }
+        get { StreakIconColor(rawValue: iconColorRawValue ?? "") ?? .accent }
         set { iconColorRawValue = newValue.rawValue }
+    }
+
+    var displayPhrase: String {
+        let trimmed = phrase.trimmingCharacters(in: .whitespacesAndNewlines)
+        let normalized = trimmed.lowercased()
+        if trimmed.isEmpty || normalized.hasPrefix("days without ") {
+            return "current streak"
+        }
+        return trimmed
     }
 
     var currentStreakDays: Int {
@@ -134,99 +143,82 @@ final class StreakIncident {
 }
 
 enum StreakIconColor: String, CaseIterable, Identifiable, Hashable {
-    case sage
-    case marine
-    case plum
-    case clay
-    case steel
-    case moss
-    case rose
-    case gold
+    case accent
+    case strength
+    case body
+    case health
+    case focus
+    case fitness
+    case meals
+    case glow
 
     var id: String { rawValue }
 
     var title: String {
         switch self {
-        case .sage:
-            "Sage"
-        case .marine:
-            "Marine"
-        case .plum:
-            "Plum"
-        case .clay:
-            "Clay"
-        case .steel:
-            "Steel"
-        case .moss:
-            "Moss"
-        case .rose:
-            "Rose"
-        case .gold:
-            "Gold"
+        case .accent:
+            "Atro"
+        case .strength:
+            "Strength"
+        case .body:
+            "Body"
+        case .health:
+            "Health"
+        case .focus:
+            "Focus"
+        case .fitness:
+            "Fitness"
+        case .meals:
+            "Meals"
+        case .glow:
+            "Glow"
         }
     }
 
     var colorHex: String {
         switch self {
-        case .sage:
-            "#5F7F6A"
-        case .marine:
-            "#346B7D"
-        case .plum:
-            "#7A5F85"
-        case .clay:
-            "#9A6A4F"
-        case .steel:
-            "#5E6977"
-        case .moss:
-            "#6E7549"
-        case .rose:
-            "#9B6670"
-        case .gold:
-            "#A17C38"
+        case .accent:
+            "#49C7C9"
+        case .strength:
+            "#52B3F1"
+        case .body:
+            "#29DBCA"
+        case .health:
+            "#FF4A73"
+        case .focus:
+            "#E176D6"
+        case .fitness:
+            "#BCF540"
+        case .meals:
+            "#439E63"
+        case .glow:
+            "#2684C5"
         }
     }
 
     var color: Color {
         switch self {
-        case .sage:
-            Color(red: 0.37, green: 0.50, blue: 0.42)
-        case .marine:
-            Color(red: 0.20, green: 0.42, blue: 0.49)
-        case .plum:
-            Color(red: 0.48, green: 0.37, blue: 0.52)
-        case .clay:
-            Color(red: 0.60, green: 0.42, blue: 0.31)
-        case .steel:
-            Color(red: 0.37, green: 0.41, blue: 0.47)
-        case .moss:
-            Color(red: 0.43, green: 0.46, blue: 0.29)
-        case .rose:
-            Color(red: 0.61, green: 0.40, blue: 0.44)
-        case .gold:
-            Color(red: 0.63, green: 0.49, blue: 0.22)
+        case .accent:
+            Color.accentColor
+        case .strength:
+            Color.liftStrength
+        case .body:
+            Color.liftBodyTint
+        case .health:
+            Color.liftHealthTint
+        case .focus:
+            Color.liftGuideTint
+        case .fitness:
+            Color.liftFitnessTint
+        case .meals:
+            Color.liftMealsTint
+        case .glow:
+            Color.liftGlow
         }
     }
 
     var softColor: Color {
-        switch self {
-        case .sage:
-            Color(red: 0.87, green: 0.91, blue: 0.87)
-        case .marine:
-            Color(red: 0.84, green: 0.91, blue: 0.93)
-        case .plum:
-            Color(red: 0.91, green: 0.87, blue: 0.92)
-        case .clay:
-            Color(red: 0.94, green: 0.88, blue: 0.85)
-        case .steel:
-            Color(red: 0.88, green: 0.89, blue: 0.92)
-        case .moss:
-            Color(red: 0.90, green: 0.91, blue: 0.85)
-        case .rose:
-            Color(red: 0.93, green: 0.87, blue: 0.88)
-        case .gold:
-            Color(red: 0.94, green: 0.90, blue: 0.79)
-        }
+        color.opacity(0.16)
     }
 }
 
@@ -310,5 +302,21 @@ enum StreakCalculator {
     static func progress(currentStreak: Int, goalDays: Int?) -> Double? {
         guard let goalDays, goalDays > 0 else { return nil }
         return min(Double(currentStreak) / Double(goalDays), 1)
+    }
+}
+
+enum StreakElapsedFormatter {
+    static func elapsedText(from startDate: Date, to endDate: Date = .now) -> String {
+        let totalSeconds = max(0, Int(endDate.timeIntervalSince(startDate)))
+        let days = totalSeconds / 86_400
+        let hours = (totalSeconds % 86_400) / 3_600
+        let minutes = (totalSeconds % 3_600) / 60
+        let seconds = totalSeconds % 60
+
+        return "\(days)d \(twoDigit(hours))h \(twoDigit(minutes))m \(twoDigit(seconds))s"
+    }
+
+    private static func twoDigit(_ value: Int) -> String {
+        value < 10 ? "0\(value)" : "\(value)"
     }
 }

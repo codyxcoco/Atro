@@ -35,7 +35,7 @@ private extension StreakCounter {
             counterId: id,
             title: title,
             subtitle: counterSubtitle,
-            phrase: phrase,
+            phrase: displayPhrase,
             symbolName: symbolName,
             themeName: theme.rawValue,
             colorHex: theme.colorHex,

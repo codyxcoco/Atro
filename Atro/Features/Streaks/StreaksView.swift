@@ -187,7 +187,7 @@ private struct StreakEditorView: View {
             _subtitle = State(initialValue: "")
             _phrase = State(initialValue: "current streak")
             _symbolName = State(initialValue: "checkmark.seal")
-            _iconColor = State(initialValue: .sage)
+            _iconColor = State(initialValue: .accent)
             _theme = State(initialValue: .recovery)
             _lastIncidentDate = State(initialValue: .now)
             _hasGoal = State(initialValue: false)
@@ -196,7 +196,7 @@ private struct StreakEditorView: View {
         case .edit(let counter):
             _title = State(initialValue: counter.title)
             _subtitle = State(initialValue: counter.counterSubtitle)
-            _phrase = State(initialValue: counter.phrase)
+            _phrase = State(initialValue: counter.displayPhrase)
             _symbolName = State(initialValue: counter.symbolName)
             _iconColor = State(initialValue: counter.iconColor)
             _theme = State(initialValue: counter.theme)
@@ -297,7 +297,7 @@ private struct StreakEditorView: View {
                                 Image(systemName: symbol)
                                     .font(.system(size: 19, weight: .semibold))
                                     .frame(width: 46, height: 46)
-                                    .background(symbolName == symbol ? iconColor.softColor.opacity(0.9) : Color.white.opacity(0.06), in: Circle())
+                                    .background(symbolName == symbol ? iconColor.softColor : Color.white.opacity(0.06), in: Circle())
                                     .foregroundStyle(symbolName == symbol ? iconColor.color : .secondary)
                             }
                             .buttonStyle(.plain)
@@ -331,6 +331,9 @@ private struct StreakEditorView: View {
 
     private func save() {
         let sanitizedPhrase = phrase.trimmingCharacters(in: .whitespacesAndNewlines)
+        let phraseForSave = sanitizedPhrase.isEmpty || sanitizedPhrase.lowercased().hasPrefix("days without ")
+            ? "current streak"
+            : sanitizedPhrase
         let goal = hasGoal ? goalDays : nil
 
         switch mode {
@@ -338,7 +341,7 @@ private struct StreakEditorView: View {
             let counter = StreakCounter(
                 title: trimmedTitle,
                 subtitle: subtitle.trimmingCharacters(in: .whitespacesAndNewlines),
-                phrase: sanitizedPhrase.isEmpty ? "current streak" : sanitizedPhrase,
+                phrase: phraseForSave,
                 symbolName: symbolName,
                 iconColor: iconColor,
                 theme: theme,
@@ -352,7 +355,7 @@ private struct StreakEditorView: View {
         case .edit(let counter):
             counter.title = trimmedTitle
             counter.counterSubtitle = subtitle.trimmingCharacters(in: .whitespacesAndNewlines)
-            counter.phrase = sanitizedPhrase.isEmpty ? "current streak" : sanitizedPhrase
+            counter.phrase = phraseForSave
             counter.symbolName = symbolName
             counter.iconColor = iconColor
             counter.theme = theme
@@ -471,7 +474,7 @@ private struct StreakCounterCard: View {
                     .font(.system(size: 19, weight: .semibold))
                     .foregroundStyle(counter.iconColor.color)
                     .frame(width: 34, height: 34)
-                    .background(counter.iconColor.softColor.opacity(0.72), in: Circle())
+                    .background(counter.iconColor.softColor, in: Circle())
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(counter.title)
@@ -504,7 +507,7 @@ private struct StreakCounterCard: View {
                     .foregroundStyle(.secondary)
             }
 
-            Text(counter.phrase)
+            Text(counter.displayPhrase)
                 .font(.lift(.subheadline, weight: .medium))
                 .foregroundStyle(.secondary)
 
@@ -530,7 +533,7 @@ private struct StreakHeroCard: View {
                     .font(.system(size: 22, weight: .semibold))
                     .foregroundStyle(counter.iconColor.color)
                     .frame(width: 42, height: 42)
-                    .background(counter.iconColor.softColor.opacity(0.75), in: Circle())
+                    .background(counter.iconColor.softColor, in: Circle())
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(counter.title)
@@ -550,10 +553,12 @@ private struct StreakHeroCard: View {
                     .monospacedDigit()
                     .minimumScaleFactor(0.55)
 
-                Text(counter.phrase)
+                Text(counter.displayPhrase)
                     .font(.lift(.title3, weight: .semibold))
                     .foregroundStyle(.secondary)
             }
+
+            LiveStreakTimerView(startDate: counter.lastIncidentDate, tint: counter.theme.color)
 
             Text("Started \(counter.lastIncidentDate.formatted(date: .abbreviated, time: .omitted))")
                 .font(.lift(.subheadline))
@@ -588,7 +593,7 @@ private struct StreakPreviewCard: View {
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundStyle(iconColor.color)
                     .frame(width: 34, height: 34)
-                    .background(iconColor.softColor.opacity(0.72), in: Circle())
+                    .background(iconColor.softColor, in: Circle())
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
@@ -653,6 +658,36 @@ private struct StreakProgressView: View {
     }
 }
 
+private struct LiveStreakTimerView: View {
+    let startDate: Date
+    let tint: Color
+
+    var body: some View {
+        TimelineView(.periodic(from: .now, by: 1)) { context in
+            let elapsedText = StreakElapsedFormatter.elapsedText(from: startDate, to: context.date)
+
+            HStack(spacing: 8) {
+                Image(systemName: "timer")
+                    .font(.system(size: 13, weight: .semibold))
+
+                Text("Live streak")
+                    .foregroundStyle(.secondary)
+
+                Text(elapsedText)
+                    .monospacedDigit()
+            }
+            .font(.lift(.footnote, weight: .semibold))
+            .foregroundStyle(tint)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(tint.opacity(0.12), in: Capsule())
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Live streak duration")
+            .accessibilityValue(elapsedText)
+        }
+    }
+}
+
 private struct StreakIconColorPicker: View {
     @Binding var selection: StreakIconColor
 
@@ -686,7 +721,7 @@ private struct StreakIconColorPicker: View {
                     .padding(.vertical, 10)
                     .background(
                         RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .fill(selection == iconColor ? iconColor.softColor.opacity(0.9) : Color.white.opacity(0.06))
+                            .fill(selection == iconColor ? iconColor.softColor : Color.white.opacity(0.06))
                     )
                     .overlay {
                         RoundedRectangle(cornerRadius: 12, style: .continuous)

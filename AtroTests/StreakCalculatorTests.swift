@@ -73,14 +73,77 @@ final class StreakCalculatorTests: XCTestCase {
         let start = try date(year: 2026, month: 5, day: 1)
         let counter = StreakCounter(title: "Training Streak", lastIncidentDate: start)
 
-        XCTAssertEqual(counter.iconColor, .sage)
+        XCTAssertEqual(counter.iconColor, .accent)
 
         counter.iconColorRawValue = nil
-        XCTAssertEqual(counter.iconColor, .sage)
+        XCTAssertEqual(counter.iconColor, .accent)
 
-        counter.iconColor = .rose
-        XCTAssertEqual(counter.iconColorRawValue, StreakIconColor.rose.rawValue)
-        XCTAssertEqual(counter.iconColor, .rose)
+        counter.iconColor = .health
+        XCTAssertEqual(counter.iconColorRawValue, StreakIconColor.health.rawValue)
+        XCTAssertEqual(counter.iconColor, .health)
+    }
+
+    func testCounterDisplayPhraseNormalizesOldDaysWithoutCopy() throws {
+        let start = try date(year: 2026, month: 5, day: 1)
+        let counter = StreakCounter(title: "Training Streak", phrase: "days without incident", lastIncidentDate: start)
+
+        XCTAssertEqual(counter.displayPhrase, "current streak")
+
+        counter.phrase = "Days Without Injury"
+        XCTAssertEqual(counter.displayPhrase, "current streak")
+
+        counter.phrase = "steady streak"
+        XCTAssertEqual(counter.displayPhrase, "steady streak")
+    }
+
+    func testWidgetSnapshotDisplayPhraseNormalizesOldDaysWithoutCopy() throws {
+        let start = try date(year: 2026, month: 5, day: 1)
+        var snapshot = StreakWidgetSnapshot(
+            counterId: UUID(),
+            title: "Training Streak",
+            subtitle: "",
+            phrase: "days without incident",
+            symbolName: "checkmark.seal",
+            themeName: "recovery",
+            colorHex: "#49C7C9",
+            iconColorHex: "#49C7C9",
+            lastIncidentDate: start,
+            goalDays: nil,
+            currentStreakDays: 0,
+            totalIncidents: 0,
+            isPinned: false,
+            updatedAt: start
+        )
+
+        XCTAssertEqual(snapshot.displayPhrase, "current streak")
+
+        snapshot.phrase = "steady streak"
+        XCTAssertEqual(snapshot.displayPhrase, "steady streak")
+    }
+
+    func testElapsedFormatterBuildsLiveTimerText() throws {
+        let start = try XCTUnwrap(calendar.date(from: DateComponents(
+            calendar: calendar,
+            timeZone: calendar.timeZone,
+            year: 2026,
+            month: 6,
+            day: 1,
+            hour: 8,
+            minute: 15,
+            second: 30
+        )))
+        let end = try XCTUnwrap(calendar.date(from: DateComponents(
+            calendar: calendar,
+            timeZone: calendar.timeZone,
+            year: 2026,
+            month: 6,
+            day: 3,
+            hour: 10,
+            minute: 20,
+            second: 35
+        )))
+
+        XCTAssertEqual(StreakElapsedFormatter.elapsedText(from: start, to: end), "2d 02h 05m 05s")
     }
 
     private func date(year: Int, month: Int, day: Int) throws -> Date {
