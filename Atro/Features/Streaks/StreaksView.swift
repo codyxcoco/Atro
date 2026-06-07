@@ -160,6 +160,7 @@ private struct StreakEditorView: View {
     @State private var subtitle: String
     @State private var phrase: String
     @State private var symbolName: String
+    @State private var iconColor: StreakIconColor
     @State private var theme: StreakTheme
     @State private var lastIncidentDate: Date
     @State private var hasGoal: Bool
@@ -186,6 +187,7 @@ private struct StreakEditorView: View {
             _subtitle = State(initialValue: "")
             _phrase = State(initialValue: "current streak")
             _symbolName = State(initialValue: "checkmark.seal")
+            _iconColor = State(initialValue: .sage)
             _theme = State(initialValue: .recovery)
             _lastIncidentDate = State(initialValue: .now)
             _hasGoal = State(initialValue: false)
@@ -196,6 +198,7 @@ private struct StreakEditorView: View {
             _subtitle = State(initialValue: counter.counterSubtitle)
             _phrase = State(initialValue: counter.phrase)
             _symbolName = State(initialValue: counter.symbolName)
+            _iconColor = State(initialValue: counter.iconColor)
             _theme = State(initialValue: counter.theme)
             _lastIncidentDate = State(initialValue: counter.lastIncidentDate)
             _hasGoal = State(initialValue: counter.goalDays != nil)
@@ -225,6 +228,7 @@ private struct StreakEditorView: View {
                     subtitle: subtitle.trimmingCharacters(in: .whitespacesAndNewlines),
                     phrase: phrase.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "current streak" : phrase,
                     symbolName: symbolName,
+                    iconColor: iconColor,
                     theme: theme,
                     lastIncidentDate: lastIncidentDate,
                     goalDays: hasGoal ? goalDays : nil
@@ -276,6 +280,15 @@ private struct StreakEditorView: View {
 
                     StreakRowDivider()
 
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Icon Color")
+                            .font(.lift(.footnote, weight: .semibold))
+                            .foregroundStyle(.secondary)
+                        StreakIconColorPicker(selection: $iconColor)
+                    }
+
+                    StreakRowDivider()
+
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 12) {
                         ForEach(symbols, id: \.self) { symbol in
                             Button {
@@ -284,8 +297,8 @@ private struct StreakEditorView: View {
                                 Image(systemName: symbol)
                                     .font(.system(size: 19, weight: .semibold))
                                     .frame(width: 46, height: 46)
-                                    .background(symbolName == symbol ? theme.color.opacity(0.22) : Color.white.opacity(0.06), in: Circle())
-                                    .foregroundStyle(symbolName == symbol ? theme.color : .secondary)
+                                    .background(symbolName == symbol ? iconColor.softColor.opacity(0.9) : Color.white.opacity(0.06), in: Circle())
+                                    .foregroundStyle(symbolName == symbol ? iconColor.color : .secondary)
                             }
                             .buttonStyle(.plain)
                             .accessibilityLabel(symbol)
@@ -327,6 +340,7 @@ private struct StreakEditorView: View {
                 subtitle: subtitle.trimmingCharacters(in: .whitespacesAndNewlines),
                 phrase: sanitizedPhrase.isEmpty ? "current streak" : sanitizedPhrase,
                 symbolName: symbolName,
+                iconColor: iconColor,
                 theme: theme,
                 lastIncidentDate: lastIncidentDate,
                 goalDays: goal,
@@ -340,6 +354,7 @@ private struct StreakEditorView: View {
             counter.counterSubtitle = subtitle.trimmingCharacters(in: .whitespacesAndNewlines)
             counter.phrase = sanitizedPhrase.isEmpty ? "current streak" : sanitizedPhrase
             counter.symbolName = symbolName
+            counter.iconColor = iconColor
             counter.theme = theme
             counter.lastIncidentDate = lastIncidentDate
             counter.goalDays = goal
@@ -454,9 +469,9 @@ private struct StreakCounterCard: View {
             HStack(alignment: .top, spacing: 12) {
                 Image(systemName: counter.symbolName)
                     .font(.system(size: 19, weight: .semibold))
-                    .foregroundStyle(counter.theme.color)
+                    .foregroundStyle(counter.iconColor.color)
                     .frame(width: 34, height: 34)
-                    .background(counter.theme.color.opacity(0.16), in: Circle())
+                    .background(counter.iconColor.softColor.opacity(0.72), in: Circle())
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(counter.title)
@@ -474,7 +489,7 @@ private struct StreakCounterCard: View {
                 if counter.isPinned {
                     Image(systemName: "pin.fill")
                         .font(.caption)
-                        .foregroundStyle(counter.theme.color)
+                        .foregroundStyle(counter.iconColor.color)
                 }
             }
 
@@ -513,9 +528,9 @@ private struct StreakHeroCard: View {
             HStack(spacing: 12) {
                 Image(systemName: counter.symbolName)
                     .font(.system(size: 22, weight: .semibold))
-                    .foregroundStyle(counter.theme.color)
+                    .foregroundStyle(counter.iconColor.color)
                     .frame(width: 42, height: 42)
-                    .background(counter.theme.color.opacity(0.18), in: Circle())
+                    .background(counter.iconColor.softColor.opacity(0.75), in: Circle())
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(counter.title)
@@ -557,6 +572,7 @@ private struct StreakPreviewCard: View {
     let subtitle: String
     let phrase: String
     let symbolName: String
+    let iconColor: StreakIconColor
     let theme: StreakTheme
     let lastIncidentDate: Date
     let goalDays: Int?
@@ -570,9 +586,9 @@ private struct StreakPreviewCard: View {
             HStack {
                 Image(systemName: symbolName)
                     .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(theme.color)
+                    .foregroundStyle(iconColor.color)
                     .frame(width: 34, height: 34)
-                    .background(theme.color.opacity(0.16), in: Circle())
+                    .background(iconColor.softColor.opacity(0.72), in: Circle())
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
@@ -633,6 +649,54 @@ private struct StreakProgressView: View {
                 }
             }
             .frame(height: 8)
+        }
+    }
+}
+
+private struct StreakIconColorPicker: View {
+    @Binding var selection: StreakIconColor
+
+    private let columns = [GridItem(.adaptive(minimum: 68), spacing: 10)]
+
+    var body: some View {
+        LazyVGrid(columns: columns, spacing: 10) {
+            ForEach(StreakIconColor.allCases) { iconColor in
+                Button {
+                    selection = iconColor
+                } label: {
+                    VStack(spacing: 8) {
+                        ZStack {
+                            Circle()
+                                .fill(iconColor.color)
+                                .frame(width: 32, height: 32)
+
+                            if selection == iconColor {
+                                Image(systemName: "checkmark")
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(.white)
+                            }
+                        }
+
+                        Text(iconColor.title)
+                            .font(.lift(.caption2, weight: .semibold))
+                            .foregroundStyle(.primary)
+                            .lineLimit(1)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(selection == iconColor ? iconColor.softColor.opacity(0.9) : Color.white.opacity(0.06))
+                    )
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .strokeBorder(selection == iconColor ? iconColor.color.opacity(0.55) : Color.white.opacity(0.08), lineWidth: 1)
+                    }
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(iconColor.title)
+                .accessibilityAddTraits(selection == iconColor ? [.isSelected] : [])
+            }
         }
     }
 }

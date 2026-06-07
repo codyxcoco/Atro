@@ -9,6 +9,7 @@ final class StreakCounter {
     var counterSubtitle: String
     var phrase: String
     var symbolName: String
+    var iconColorRawValue: String?
     var themeRawValue: String
     var lastIncidentDate: Date
     var goalDays: Int?
@@ -25,6 +26,7 @@ final class StreakCounter {
         subtitle: String = "",
         phrase: String = "current streak",
         symbolName: String = "checkmark.seal",
+        iconColor: StreakIconColor = .sage,
         theme: StreakTheme = .recovery,
         lastIncidentDate: Date,
         goalDays: Int? = nil,
@@ -38,6 +40,7 @@ final class StreakCounter {
         self.counterSubtitle = subtitle
         self.phrase = phrase
         self.symbolName = symbolName
+        self.iconColorRawValue = iconColor.rawValue
         self.themeRawValue = theme.rawValue
         self.lastIncidentDate = lastIncidentDate
         self.goalDays = goalDays
@@ -55,6 +58,11 @@ final class StreakCounter {
     var theme: StreakTheme {
         get { StreakTheme(rawValue: themeRawValue) ?? .recovery }
         set { themeRawValue = newValue.rawValue }
+    }
+
+    var iconColor: StreakIconColor {
+        get { StreakIconColor(rawValue: iconColorRawValue ?? "") ?? .sage }
+        set { iconColorRawValue = newValue.rawValue }
     }
 
     var currentStreakDays: Int {
@@ -122,6 +130,103 @@ final class StreakIncident {
         self.note = note
         self.previousStreakLength = previousStreakLength
         self.createdAt = createdAt
+    }
+}
+
+enum StreakIconColor: String, CaseIterable, Identifiable, Hashable {
+    case sage
+    case marine
+    case plum
+    case clay
+    case steel
+    case moss
+    case rose
+    case gold
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .sage:
+            "Sage"
+        case .marine:
+            "Marine"
+        case .plum:
+            "Plum"
+        case .clay:
+            "Clay"
+        case .steel:
+            "Steel"
+        case .moss:
+            "Moss"
+        case .rose:
+            "Rose"
+        case .gold:
+            "Gold"
+        }
+    }
+
+    var colorHex: String {
+        switch self {
+        case .sage:
+            "#5F7F6A"
+        case .marine:
+            "#346B7D"
+        case .plum:
+            "#7A5F85"
+        case .clay:
+            "#9A6A4F"
+        case .steel:
+            "#5E6977"
+        case .moss:
+            "#6E7549"
+        case .rose:
+            "#9B6670"
+        case .gold:
+            "#A17C38"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .sage:
+            Color(red: 0.37, green: 0.50, blue: 0.42)
+        case .marine:
+            Color(red: 0.20, green: 0.42, blue: 0.49)
+        case .plum:
+            Color(red: 0.48, green: 0.37, blue: 0.52)
+        case .clay:
+            Color(red: 0.60, green: 0.42, blue: 0.31)
+        case .steel:
+            Color(red: 0.37, green: 0.41, blue: 0.47)
+        case .moss:
+            Color(red: 0.43, green: 0.46, blue: 0.29)
+        case .rose:
+            Color(red: 0.61, green: 0.40, blue: 0.44)
+        case .gold:
+            Color(red: 0.63, green: 0.49, blue: 0.22)
+        }
+    }
+
+    var softColor: Color {
+        switch self {
+        case .sage:
+            Color(red: 0.87, green: 0.91, blue: 0.87)
+        case .marine:
+            Color(red: 0.84, green: 0.91, blue: 0.93)
+        case .plum:
+            Color(red: 0.91, green: 0.87, blue: 0.92)
+        case .clay:
+            Color(red: 0.94, green: 0.88, blue: 0.85)
+        case .steel:
+            Color(red: 0.88, green: 0.89, blue: 0.92)
+        case .moss:
+            Color(red: 0.90, green: 0.91, blue: 0.85)
+        case .rose:
+            Color(red: 0.93, green: 0.87, blue: 0.88)
+        case .gold:
+            Color(red: 0.94, green: 0.90, blue: 0.79)
+        }
     }
 }
 

@@ -69,6 +69,20 @@ final class StreakCalculatorTests: XCTestCase {
         XCTAssertNil(StreakCalculator.averageStreak(previousStreaks: []))
     }
 
+    func testCounterIconColorDefaultsAndUpdates() throws {
+        let start = try date(year: 2026, month: 5, day: 1)
+        let counter = StreakCounter(title: "Training Streak", lastIncidentDate: start)
+
+        XCTAssertEqual(counter.iconColor, .sage)
+
+        counter.iconColorRawValue = nil
+        XCTAssertEqual(counter.iconColor, .sage)
+
+        counter.iconColor = .rose
+        XCTAssertEqual(counter.iconColorRawValue, StreakIconColor.rose.rawValue)
+        XCTAssertEqual(counter.iconColor, .rose)
+    }
+
     private func date(year: Int, month: Int, day: Int) throws -> Date {
         try XCTUnwrap(calendar.date(from: DateComponents(
             calendar: calendar,

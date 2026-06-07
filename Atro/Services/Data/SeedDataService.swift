@@ -161,6 +161,7 @@ enum SeedDataService {
             subtitle: "Steady training rhythm",
             phrase: "current streak",
             symbolName: "figure.strengthtraining.traditional",
+            iconColor: .sage,
             theme: .strength,
             lastIncidentDate: trainingStart,
             goalDays: 90,
@@ -179,6 +180,7 @@ enum SeedDataService {
             subtitle: "Capacity and consistency",
             phrase: "current streak",
             symbolName: "brain.head.profile",
+            iconColor: .plum,
             theme: .focus,
             lastIncidentDate: burnoutStart,
             goalDays: 30

@@ -149,6 +149,7 @@ private struct AccessoryCircularAtroStreakWidget: View {
             VStack(spacing: 1) {
                 Image(systemName: snapshot.symbolName)
                     .font(.caption2)
+                    .foregroundStyle(snapshot.iconTint)
                 Text("\(snapshot.currentStreakDays)")
                     .font(.system(.title3, design: .rounded).weight(.semibold))
                     .monospacedDigit()
@@ -163,6 +164,7 @@ private struct AccessoryRectangularAtroStreakWidget: View {
     var body: some View {
         HStack(spacing: 8) {
             Image(systemName: snapshot.symbolName)
+                .foregroundStyle(snapshot.iconTint)
             VStack(alignment: .leading, spacing: 1) {
                 Text(snapshot.title)
                     .font(.caption.weight(.semibold))
@@ -202,9 +204,9 @@ private struct WidgetHeader: View {
         HStack(alignment: .top, spacing: 8) {
             Image(systemName: snapshot.symbolName)
                 .font(.headline)
-                .foregroundStyle(snapshot.tint)
+                .foregroundStyle(snapshot.iconTint)
                 .frame(width: 28, height: 28)
-                .background(snapshot.tint.opacity(0.12), in: Circle())
+                .background(snapshot.iconTint.opacity(0.12), in: Circle())
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(snapshot.title)
@@ -246,6 +248,10 @@ private struct ProgressRingView: View {
 private extension StreakWidgetSnapshot {
     var tint: Color {
         Color(hex: colorHex) ?? .accentColor
+    }
+
+    var iconTint: Color {
+        Color(hex: iconColorHex ?? "") ?? tint
     }
 
     var progress: Double? {

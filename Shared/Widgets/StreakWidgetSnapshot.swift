@@ -14,6 +14,7 @@ struct StreakWidgetSnapshot: Codable, Hashable, Identifiable {
     var symbolName: String
     var themeName: String
     var colorHex: String
+    var iconColorHex: String?
     var lastIncidentDate: Date
     var goalDays: Int?
     var currentStreakDays: Int

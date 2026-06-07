@@ -39,6 +39,7 @@ private extension StreakCounter {
             symbolName: symbolName,
             themeName: theme.rawValue,
             colorHex: theme.colorHex,
+            iconColorHex: iconColor.colorHex,
             lastIncidentDate: lastIncidentDate,
             goalDays: goalDays,
             currentStreakDays: currentStreakDays,

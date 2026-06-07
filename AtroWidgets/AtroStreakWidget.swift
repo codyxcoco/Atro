@@ -74,6 +74,7 @@ private extension StreakWidgetSnapshot {
         symbolName: "figure.strengthtraining.traditional",
         themeName: "strength",
         colorHex: "#9DD64B",
+        iconColorHex: "#5F7F6A",
         lastIncidentDate: Calendar.current.date(byAdding: .day, value: -23, to: .now) ?? .now,
         goalDays: 90,
         currentStreakDays: 23,
