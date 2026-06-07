@@ -79,6 +79,7 @@ struct RootTabView: View {
         .task {
             appModel.activateWatchSync()
             appModel.pushWatchSnapshot(using: modelContext)
+            StreakWidgetSyncService.sync(modelContext: modelContext)
         }
         .task(id: watchSyncSignature) {
             appModel.pushWatchSnapshot(using: modelContext)
@@ -89,7 +90,11 @@ struct RootTabView: View {
             Task {
                 await appModel.refreshIntegrations(using: currentSettings, modelContext: modelContext)
                 appModel.pushWatchSnapshot(using: modelContext)
+                StreakWidgetSyncService.sync(modelContext: modelContext)
             }
+        }
+        .onOpenURL { url in
+            appModel.handleDeepLink(url)
         }
         .overlay(alignment: .top) {
             if let banner = appModel.pendingBanner {

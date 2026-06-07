@@ -163,6 +163,21 @@ enum StreakTheme: String, CaseIterable, Identifiable, Hashable {
             Color.liftGuideTint
         }
     }
+
+    var colorHex: String {
+        switch self {
+        case .recovery:
+            "#5EA1FF"
+        case .strength:
+            "#9DD64B"
+        case .body:
+            "#F2A65A"
+        case .health:
+            "#55D6BE"
+        case .focus:
+            "#B49CFF"
+        }
+    }
 }
 
 enum StreakCalculator {

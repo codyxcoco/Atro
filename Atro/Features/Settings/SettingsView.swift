@@ -151,6 +151,7 @@ struct SettingsView: View {
 
         do {
             try DataResetService.resetAllData(in: modelContext, settings: settings)
+            StreakWidgetSyncService.sync(modelContext: modelContext)
             appModel.selectedTab = .today
             appModel.haptics.confirm()
             appModel.showBanner("All data deleted", systemImage: "trash.fill")

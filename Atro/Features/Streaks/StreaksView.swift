@@ -5,6 +5,7 @@ struct StreaksView: View {
     @Environment(AppModel.self) private var appModel
     @Query(sort: \StreakCounter.updatedAt, order: .reverse) private var counters: [StreakCounter]
     @State private var editorMode: StreakEditorMode?
+    @State private var deepLinkedCounter: StreakCounter?
 
     private var sortedCounters: [StreakCounter] {
         counters.sorted { lhs, rhs in
@@ -57,6 +58,27 @@ struct StreaksView: View {
                 StreakEditorView(mode: mode)
             }
         }
+        .sheet(item: $deepLinkedCounter) { counter in
+            NavigationStack {
+                StreakDetailView(counter: counter)
+            }
+        }
+        .task(id: appModel.pendingStreakCounterID) {
+            presentPendingDeepLinkIfPossible()
+        }
+        .onChange(of: counters.map(\.id)) { _, _ in
+            presentPendingDeepLinkIfPossible()
+        }
+    }
+
+    private func presentPendingDeepLinkIfPossible() {
+        guard let pendingID = appModel.pendingStreakCounterID,
+              let counter = counters.first(where: { $0.id == pendingID }) else {
+            return
+        }
+
+        deepLinkedCounter = counter
+        appModel.pendingStreakCounterID = nil
     }
 }
 
@@ -328,6 +350,7 @@ private struct StreakEditorView: View {
         }
 
         try? modelContext.save()
+        StreakWidgetSyncService.sync(modelContext: modelContext)
         dismiss()
     }
 }
@@ -416,6 +439,7 @@ private struct LogStreakIncidentView: View {
         modelContext.insert(incident)
 
         try? modelContext.save()
+        StreakWidgetSyncService.sync(modelContext: modelContext)
         appModel.haptics.confirm()
         appModel.showBanner("Incident saved", systemImage: "arrow.counterclockwise.circle.fill")
         dismiss()

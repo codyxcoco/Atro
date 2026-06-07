@@ -6,6 +6,7 @@ import SwiftData
 final class AppModel {
     var selectedTab: AppTab = .today
     var pendingBanner: BannerMessage?
+    var pendingStreakCounterID: UUID?
     var watchWorkoutProgressRevision = 0
     @ObservationIgnored private var bannerDismissTask: Task<Void, Never>?
     @ObservationIgnored private let watchProgressDefaultsKey = "Atro.watchWorkoutProgressUpdates"
@@ -133,6 +134,24 @@ final class AppModel {
         guard let data = try? watchProgressEncoder.encode(updates) else { return }
 
         defaults.set(data, forKey: watchProgressDefaultsKey)
+    }
+
+    func handleDeepLink(_ url: URL) {
+        guard url.scheme == "atro" else { return }
+
+        switch url.host {
+        case "streak", "streaks":
+            selectedTab = .streaks
+
+            if let idString = url.pathComponents.dropFirst().first,
+               let id = UUID(uuidString: idString) {
+                pendingStreakCounterID = id
+            }
+        case "planned-workout":
+            selectedTab = .plan
+        default:
+            break
+        }
     }
 }
 

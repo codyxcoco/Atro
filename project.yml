@@ -10,6 +10,8 @@ settings:
     SWIFT_VERSION: 6.0
     TARGETED_DEVICE_FAMILY: "1"
     SUPPORTS_MACCATALYST: NO
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: J29924Y5UF
 targets:
   Atro:
     type: application
@@ -46,12 +48,17 @@ targets:
       path: Atro/Resources/Atro.entitlements
       properties:
         com.apple.developer.healthkit: true
+        com.apple.security.application-groups:
+          - group.com.codex.Atro
     dependencies:
       - sdk: AVFoundation.framework
+      - sdk: AppIntents.framework
       - sdk: EventKit.framework
       - sdk: HealthKit.framework
       - sdk: UIKit.framework
       - sdk: WatchConnectivity.framework
+      - sdk: WidgetKit.framework
+      - target: AtroWidgets
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.codex.Atro
@@ -64,6 +71,42 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         CURRENT_PROJECT_VERSION: 1
         MARKETING_VERSION: 1.0
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+  AtroWidgets:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: AtroWidgets
+      - path: Shared/Widgets
+    info:
+      path: AtroWidgets/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Atro Widgets
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: AtroWidgets/Resources/AtroWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.codex.Atro
+    dependencies:
+      - sdk: AppIntents.framework
+      - sdk: SwiftUI.framework
+      - sdk: WidgetKit.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.codex.Atro.widgets
+        PRODUCT_NAME: Atro Widgets
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: AtroWidgets/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: AtroWidgets/Resources/AtroWidgets.entitlements
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        SKIP_INSTALL: YES
         ENABLE_USER_SCRIPT_SANDBOXING: NO
   AtroWatch:
     type: application
