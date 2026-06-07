@@ -68,9 +68,9 @@ struct AtroStreakTimelineProvider: AppIntentTimelineProvider {
 private extension StreakWidgetSnapshot {
     static let placeholder = StreakWidgetSnapshot(
         counterId: UUID(uuidString: "00000000-0000-0000-0000-000000000001") ?? UUID(),
-        title: "Days Without Injury",
-        subtitle: "Training stays calm",
-        phrase: "days without injury",
+        title: "Training Streak",
+        subtitle: "Steady training rhythm",
+        phrase: "current streak",
         symbolName: "figure.strengthtraining.traditional",
         themeName: "strength",
         colorHex: "#9DD64B",

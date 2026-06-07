@@ -21,7 +21,7 @@ struct StreaksView: View {
                     EmptyStateCard(
                         symbol: "number.circle",
                         title: "Start with one marker.",
-                        message: "Track the quiet wins: days without injury, burnout, missed training, or anything else worth noticing.",
+                        message: "Track the quiet wins: training, recovery, consistency, or anything else worth noticing.",
                         primaryTitle: "New Streak"
                     ) {
                         editorMode = .create
@@ -93,7 +93,7 @@ private struct StreakDetailView: View {
         [
             StreakStat(title: "Current", value: "\(counter.currentStreakDays)", caption: "days"),
             StreakStat(title: "Best", value: "\(counter.longestStreakDays)", caption: "days"),
-            StreakStat(title: "Logged", value: "\(counter.totalIncidents)", caption: counter.totalIncidents == 1 ? "incident" : "incidents"),
+            StreakStat(title: "Logged", value: "\(counter.totalIncidents)", caption: counter.totalIncidents == 1 ? "reset" : "resets"),
             StreakStat(title: "Average", value: averageText, caption: "days")
         ]
     }
@@ -117,7 +117,7 @@ private struct StreakDetailView: View {
                 Button {
                     loggingCounter = counter
                 } label: {
-                    Label("Log Incident", systemImage: "arrow.counterclockwise")
+                    Label("Restart Streak", systemImage: "arrow.counterclockwise")
                         .font(.lift(.body, weight: .semibold))
                         .frame(maxWidth: .infinity)
                 }
@@ -184,7 +184,7 @@ private struct StreakEditorView: View {
         case .create:
             _title = State(initialValue: "")
             _subtitle = State(initialValue: "")
-            _phrase = State(initialValue: "days without incident")
+            _phrase = State(initialValue: "current streak")
             _symbolName = State(initialValue: "checkmark.seal")
             _theme = State(initialValue: .recovery)
             _lastIncidentDate = State(initialValue: .now)
@@ -221,9 +221,9 @@ private struct StreakEditorView: View {
         ScrollView {
             VStack(spacing: 16) {
                 StreakPreviewCard(
-                    title: trimmedTitle.isEmpty ? "Days Without Injury" : trimmedTitle,
+                    title: trimmedTitle.isEmpty ? "Training Streak" : trimmedTitle,
                     subtitle: subtitle.trimmingCharacters(in: .whitespacesAndNewlines),
-                    phrase: phrase.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "days without incident" : phrase,
+                    phrase: phrase.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "current streak" : phrase,
                     symbolName: symbolName,
                     theme: theme,
                     lastIncidentDate: lastIncidentDate,
@@ -242,7 +242,7 @@ private struct StreakEditorView: View {
                 }
 
                 StreakEditorSection(title: "Timing", systemImage: "calendar") {
-                    DatePicker("Start or last incident", selection: $lastIncidentDate, in: ...Date(), displayedComponents: .date)
+                    DatePicker("Streak start or reset date", selection: $lastIncidentDate, in: ...Date(), displayedComponents: .date)
                     StreakRowDivider()
                     Toggle("Pin on Streaks", isOn: $isPinned)
                         .toggleStyle(.switch)
@@ -325,7 +325,7 @@ private struct StreakEditorView: View {
             let counter = StreakCounter(
                 title: trimmedTitle,
                 subtitle: subtitle.trimmingCharacters(in: .whitespacesAndNewlines),
-                phrase: sanitizedPhrase.isEmpty ? "days without incident" : sanitizedPhrase,
+                phrase: sanitizedPhrase.isEmpty ? "current streak" : sanitizedPhrase,
                 symbolName: symbolName,
                 theme: theme,
                 lastIncidentDate: lastIncidentDate,
@@ -338,7 +338,7 @@ private struct StreakEditorView: View {
         case .edit(let counter):
             counter.title = trimmedTitle
             counter.counterSubtitle = subtitle.trimmingCharacters(in: .whitespacesAndNewlines)
-            counter.phrase = sanitizedPhrase.isEmpty ? "days without incident" : sanitizedPhrase
+            counter.phrase = sanitizedPhrase.isEmpty ? "current streak" : sanitizedPhrase
             counter.symbolName = symbolName
             counter.theme = theme
             counter.lastIncidentDate = lastIncidentDate
@@ -378,14 +378,14 @@ private struct LogStreakIncidentView: View {
                             .font(.lift(.title3, weight: .bold))
                             .foregroundStyle(counter.theme.color)
 
-                        Text("The current streak will be saved to history, and a new streak will begin from the incident date.")
+                        Text("The current streak will be saved to history, and a new streak will begin from the selected date.")
                             .font(.lift(.body))
                             .foregroundStyle(.secondary)
                     }
                     .liftCardStyle()
 
-                    StreakEditorSection(title: "Incident", systemImage: "calendar.badge.clock") {
-                        DatePicker("Date", selection: $incidentDate, in: ...Date(), displayedComponents: .date)
+                    StreakEditorSection(title: "Reset", systemImage: "calendar.badge.clock") {
+                        DatePicker("Restart date", selection: $incidentDate, in: ...Date(), displayedComponents: .date)
                         StreakRowDivider()
                         TextField("Optional note", text: $note, axis: .vertical)
                             .lineLimit(3...5)
@@ -394,7 +394,7 @@ private struct LogStreakIncidentView: View {
                     Button(role: .destructive) {
                         showsConfirmation = true
                     } label: {
-                        Text("Save Incident")
+                        Text("Save Reset")
                             .font(.lift(.body, weight: .semibold))
                             .frame(maxWidth: .infinity)
                     }
@@ -405,7 +405,7 @@ private struct LogStreakIncidentView: View {
                 .padding()
             }
             .liftScreenBackground()
-            .navigationTitle("Log Incident")
+            .navigationTitle("Restart Streak")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -416,11 +416,11 @@ private struct LogStreakIncidentView: View {
             }
             .alert("Restart this streak?", isPresented: $showsConfirmation) {
                 Button("Cancel", role: .cancel) {}
-                Button("Save Incident", role: .destructive) {
+                Button("Save Reset", role: .destructive) {
                     saveIncident()
                 }
             } message: {
-                Text("This saves the previous \(previousStreakLength)-day streak to history and begins again from the incident date.")
+                Text("This saves the previous \(previousStreakLength)-day streak to history and begins again from the selected date.")
             }
         }
     }
@@ -441,7 +441,7 @@ private struct LogStreakIncidentView: View {
         try? modelContext.save()
         StreakWidgetSyncService.sync(modelContext: modelContext)
         appModel.haptics.confirm()
-        appModel.showBanner("Incident saved", systemImage: "arrow.counterclockwise.circle.fill")
+        appModel.showBanner("Streak reset saved", systemImage: "arrow.counterclockwise.circle.fill")
         dismiss()
     }
 }
@@ -678,7 +678,7 @@ private struct IncidentHistoryCard: View {
                 .foregroundStyle(counter.theme.color)
 
             if counter.sortedIncidents.isEmpty {
-                Text("No incidents logged yet.")
+                Text("No resets logged yet.")
                     .font(.lift(.body))
                     .foregroundStyle(.secondary)
             } else {

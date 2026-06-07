@@ -47,7 +47,7 @@ final class StreakCalculatorTests: XCTestCase {
         let start = try date(year: 2026, month: 5, day: 1)
         let incidentDate = try date(year: 2026, month: 5, day: 10)
         let today = try date(year: 2026, month: 5, day: 12)
-        let counter = StreakCounter(title: "Days Without Injury", lastIncidentDate: start)
+        let counter = StreakCounter(title: "Training Streak", lastIncidentDate: start)
 
         let previousStreak = StreakCalculator.fullCalendarDays(from: counter.lastIncidentDate, to: incidentDate, calendar: calendar)
         counter.incidents = [

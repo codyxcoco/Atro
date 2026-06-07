@@ -152,39 +152,39 @@ enum SeedDataService {
 
     private static func streakCounterSamples(calendar: Calendar) -> [StreakCounter] {
         let today = calendar.startOfDay(for: .now)
-        let injuryStart = calendar.date(byAdding: .day, value: -23, to: today) ?? today
+        let trainingStart = calendar.date(byAdding: .day, value: -23, to: today) ?? today
         let burnoutStart = calendar.date(byAdding: .day, value: -11, to: today) ?? today
-        let previousIncidentDate = calendar.date(byAdding: .day, value: -23, to: injuryStart) ?? injuryStart
+        let previousResetDate = calendar.date(byAdding: .day, value: -23, to: trainingStart) ?? trainingStart
 
-        let injuryCounter = StreakCounter(
-            title: "Days Without Injury",
-            subtitle: "Training stays calm",
-            phrase: "days without injury",
+        let trainingCounter = StreakCounter(
+            title: "Training Streak",
+            subtitle: "Steady training rhythm",
+            phrase: "current streak",
             symbolName: "figure.strengthtraining.traditional",
             theme: .strength,
-            lastIncidentDate: injuryStart,
+            lastIncidentDate: trainingStart,
             goalDays: 90,
             isPinned: true
         )
-        injuryCounter.incidents = [
+        trainingCounter.incidents = [
             StreakIncident(
-                date: previousIncidentDate,
+                date: previousResetDate,
                 note: "Reduced load for a week and rebuilt gradually.",
                 previousStreakLength: 34
             )
         ]
 
         let burnoutCounter = StreakCounter(
-            title: "Days Without Burnout",
-            subtitle: "Recovery capacity",
-            phrase: "days without burnout",
+            title: "Recovery Streak",
+            subtitle: "Capacity and consistency",
+            phrase: "current streak",
             symbolName: "brain.head.profile",
             theme: .focus,
             lastIncidentDate: burnoutStart,
             goalDays: 30
         )
 
-        return [injuryCounter, burnoutCounter]
+        return [trainingCounter, burnoutCounter]
     }
 
     private static func historicalWorkoutSamples(calendar: Calendar) -> [LoggedWorkout] {

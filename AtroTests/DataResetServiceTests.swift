@@ -49,16 +49,16 @@ final class DataResetServiceTests: XCTestCase {
             )
         )
         let streakCounter = StreakCounter(
-            title: "Days Without Injury",
+            title: "Training Streak",
             subtitle: "Reset coverage",
-            phrase: "days without injury",
+            phrase: "current streak",
             symbolName: "figure.strengthtraining.traditional",
             theme: .strength,
             lastIncidentDate: .now,
             goalDays: 30
         )
         streakCounter.incidents = [
-            StreakIncident(date: .now, note: "Test incident", previousStreakLength: 12)
+            StreakIncident(date: .now, note: "Test reset", previousStreakLength: 12)
         ]
         context.insert(streakCounter)
         try context.save()

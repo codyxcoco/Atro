@@ -23,7 +23,7 @@ final class StreakCounter {
         id: UUID = UUID(),
         title: String,
         subtitle: String = "",
-        phrase: String = "days without incident",
+        phrase: String = "current streak",
         symbolName: String = "checkmark.seal",
         theme: StreakTheme = .recovery,
         lastIncidentDate: Date,
