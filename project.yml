@@ -1,4 +1,4 @@
-name: LiftJournal
+name: Atro
 options:
   createIntermediateGroups: true
   defaultConfig: Debug
@@ -10,22 +10,26 @@ settings:
     SWIFT_VERSION: 6.0
     TARGETED_DEVICE_FAMILY: "1"
     SUPPORTS_MACCATALYST: NO
-    DEVELOPMENT_ASSET_PATHS: "\"LiftJournal/Preview\""
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: J29924Y5UF
 targets:
-  LiftJournal:
+  Atro:
     type: application
     platform: iOS
     deploymentTarget: "26.0"
     sources:
-      - path: LiftJournal
+      - path: Atro
         excludes:
           - Resources
-      - path: LiftJournal/Resources/Assets.xcassets
+      - path: Atro/Resources/Assets.xcassets
         buildPhase: resources
+      - path: Atro/Resources/PrivacyInfo.xcprivacy
+        buildPhase: resources
+      - path: Shared
     info:
-      path: LiftJournal/Resources/Info.plist
+      path: Atro/Resources/Info.plist
       properties:
-        CFBundleDisplayName: Lift Journal
+        CFBundleDisplayName: Atro
         UIApplicationSupportsIndirectInputEvents: true
         UIUserInterfaceStyle: Automatic
         UILaunchScreen: {}
@@ -33,41 +37,134 @@ targets:
           - UIInterfaceOrientationPortrait
         CFBundleURLTypes:
           - CFBundleTypeRole: Editor
-            CFBundleURLName: LiftJournal
+            CFBundleURLName: Atro
             CFBundleURLSchemes:
-              - liftjournal
-        NSCalendarsWriteOnlyAccessUsageDescription: Lift Journal can add your planned workouts to Calendar when you choose to sync them.
-        NSHealthShareUsageDescription: Lift Journal can read your workout and activity context to keep Today simple and personal.
-        NSHealthUpdateUsageDescription: Lift Journal can write completed workouts and optional mood reflections to Health when you enable it.
+              - atro
+        ITSAppUsesNonExemptEncryption: false
+        NSCalendarsWriteOnlyAccessUsageDescription: Atro can add the workout title, date, duration, and notes for a planned session to Calendar when you choose to sync it.
+        NSHealthShareUsageDescription: Atro can read your workouts, active energy, and exercise minutes to personalize Today and match imported workouts in Journal.
+        NSHealthUpdateUsageDescription: Atro can write completed workouts that you save in Atro to the Health app when you enable workout export.
     entitlements:
-      path: LiftJournal/Resources/LiftJournal.entitlements
+      path: Atro/Resources/Atro.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.security.application-groups:
+          - group.com.codex.Atro
     dependencies:
+      - sdk: AVFoundation.framework
+      - sdk: AppIntents.framework
       - sdk: EventKit.framework
       - sdk: HealthKit.framework
       - sdk: UIKit.framework
+      - sdk: WatchConnectivity.framework
+      - sdk: WidgetKit.framework
+      - target: AtroWidgets
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.codex.LiftJournal
-        PRODUCT_NAME: LiftJournal
+        PRODUCT_BUNDLE_IDENTIFIER: com.codex.Atro
+        PRODUCT_NAME: Atro
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: NO
-        INFOPLIST_FILE: LiftJournal/Resources/Info.plist
-        CODE_SIGN_ENTITLEMENTS: LiftJournal/Resources/LiftJournal.entitlements
+        INFOPLIST_FILE: Atro/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Atro/Resources/Atro.entitlements
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         CURRENT_PROJECT_VERSION: 1
         MARKETING_VERSION: 1.0
         ENABLE_USER_SCRIPT_SANDBOXING: NO
-  LiftJournalTests:
+  AtroWidgets:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: AtroWidgets
+      - path: Shared/Widgets
+    info:
+      path: AtroWidgets/Resources/Info.plist
+      properties:
+        CFBundleDisplayName: Atro Widgets
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: AtroWidgets/Resources/AtroWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.codex.Atro
+    dependencies:
+      - sdk: AppIntents.framework
+      - sdk: SwiftUI.framework
+      - sdk: WidgetKit.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.codex.Atro.widgets
+        PRODUCT_NAME: Atro Widgets
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: AtroWidgets/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: AtroWidgets/Resources/AtroWidgets.entitlements
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        SKIP_INSTALL: YES
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+  AtroWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: AtroWatch
+      - path: Shared
+    dependencies:
+      - sdk: WatchConnectivity.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.codex.Atro.watchkitapp
+        PRODUCT_NAME: Atro Watch
+        TARGETED_DEVICE_FAMILY: "4"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Atro
+        INFOPLIST_KEY_WKCompanionAppBundleIdentifier: com.codex.Atro
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+  AtroTests:
     type: bundle.unit-test
     platform: iOS
     deploymentTarget: "26.0"
     sources:
-      - LiftJournalTests
+      - AtroTests
     dependencies:
-      - target: LiftJournal
+      - target: Atro
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.codex.LiftJournalTests
+        PRODUCT_BUNDLE_IDENTIFIER: com.codex.AtroTests
+        PRODUCT_NAME: AtroTests
         TARGETED_DEVICE_FAMILY: "1"
         GENERATE_INFOPLIST_FILE: YES
+schemes:
+  Atro:
+    build:
+      targets:
+        Atro: all
+        AtroTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - name: AtroTests
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+    profile:
+      config: Release
+  AtroWatch:
+    build:
+      targets:
+        AtroWatch: all
+    run:
+      config: Debug
+    archive:
+      config: Release
+    profile:
+      config: Release

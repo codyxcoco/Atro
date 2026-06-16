@@ -1,13 +1,13 @@
-# Lift Journal
+# Atro
 
-Lift Journal is a native iPhone workout journal built with SwiftUI, SwiftData, EventKit, and HealthKit. The app is intentionally narrow: create a template, plan a workout, sync it to Calendar, log it quickly, add a short reflection, and revisit it in a calm journal-style history.
+Atro is a native iPhone workout journal built with SwiftUI, SwiftData, EventKit, and HealthKit. The app is intentionally narrow: create a template, plan a workout, sync it to Calendar, log it quickly, add a short reflection, and revisit it in a calm journal-style history.
 
 ## Stack
 
 - SwiftUI with modern Observation
 - SwiftData for local-first persistence
 - EventKit for one-way Calendar sync
-- HealthKit for optional activity context and workout/state-of-mind export
+- HealthKit for optional activity context and workout export
 - Async/await for permissions and integration flows
 - XcodeGen for project generation
 
@@ -22,10 +22,10 @@ xcodegen generate
 2. Open the project:
 
 ```bash
-open LiftJournal.xcodeproj
+open Atro.xcodeproj
 ```
 
-3. Build and run the `LiftJournal` scheme on an iPhone simulator.
+3. Build and run the `Atro` scheme on an iPhone simulator.
 
 Current local toolchain used for this project:
 
@@ -36,13 +36,13 @@ Current local toolchain used for this project:
 ## Test command
 
 ```bash
-xcodebuild -project LiftJournal.xcodeproj -scheme LiftJournal -destination 'platform=iOS Simulator,name=iPhone 17 Pro' test
+xcodebuild -project Atro.xcodeproj -scheme Atro -destination 'platform=iOS Simulator,name=iPhone 17 Pro' test
 ```
 
 ## Folder structure
 
 ```text
-LiftJournal/
+Atro/
   App/                 App entry, root tabs, theme, app-level state
   Components/          Small reusable SwiftUI pieces and UIKit wrappers
   Features/
@@ -61,7 +61,7 @@ LiftJournal/
     System/            Haptics
   Preview/             In-memory preview container
   Resources/           Assets, entitlements, generated Info.plist
-LiftJournalTests/      Unit tests for draft/model/sync helpers
+AtroTests/             Unit tests for draft/model/sync helpers
 ```
 
 ## Architecture notes
@@ -105,7 +105,7 @@ The current project supports the intended happy path:
 3. Optionally sync that planned workout to Calendar.
 4. Start a workout from Today or the Plan list.
 5. Log reps, weight, time, and quick set completion during the session.
-6. Finish with notes, tags, and optional pre/post feeling check-ins.
+6. Finish with notes, tags, and optional pre/post State of Body notes.
 7. Review entries in Journal with search and basic filtering.
 
 ## Calendar integration
@@ -116,7 +116,7 @@ The current project supports the intended happy path:
 - Calendar event notes include a deep link back into the app:
 
 ```text
-liftjournal://planned-workout/<uuid>
+atro://planned-workout/<uuid>
 ```
 
 ## Health integration
@@ -125,7 +125,6 @@ liftjournal://planned-workout/<uuid>
 - When enabled, the app can:
   - read today’s activity context (`activeEnergyBurned`, `appleExerciseTime`, workout count)
   - write completed workouts if the user opts in
-  - write state-of-mind samples if the user opts into mood export
 - If access is denied, the journal and workout flows stay fully usable.
 
 ## Permissions and entitlements
@@ -142,16 +141,18 @@ Entitlements:
 
 ## Sample data
 
-On first launch the app seeds:
+The shipped app starts empty on first launch.
+
+Sample data is still available for previews and development-only in-memory containers, including:
 
 - two workout templates
 - a planned workout for today
 - a rest day
 - another planned workout later in the week
-- one logged workout with notes and mood check-ins
+- one logged workout with notes and State of Body entries
 - one meal entry for previewing the optional meals section
 
-This keeps previews and simulator runs useful from the first launch without hiding the empty states elsewhere in the app.
+This keeps previews useful without hiding the real empty states in the app itself.
 
 ## Accessibility and native polish
 
@@ -174,7 +175,7 @@ Accent and tint direction:
 
 App icon direction:
 
-- Minimal journal + dumbbell motif
+- Minimal Atro monogram on a soft glass-like tile
 - Light and dark icon variants included in `Assets.xcassets/AppIcon.appiconset`
 - Geometric, native-feeling, and intentionally calm rather than aggressive
 

@@ -1,0 +1,1208 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		028D756C12E07BE0D3535C89 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3FD09D574B3B1416C557D /* EventKit.framework */; };
+		05E518F41102B807D36D6641 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1196DA6DCDE6F545BC7254A7 /* WidgetKit.framework */; };
+		0657BCA87B0B1587994F020E /* JournalFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4CECE6F461C41DAF6C704B /* JournalFilter.swift */; };
+		06A6D17479652871AEEF3000 /* StreakCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD36DA862F1509E0828E3D5 /* StreakCounter.swift */; };
+		072CA950B066A2635462F219 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F3C8CA1BAA035F01B20AF /* ShareSheet.swift */; };
+		0920B5906A8F0AD2CC01EB7C /* StreakCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47476C48EF0B6B8D741C3D4C /* StreakCalculatorTests.swift */; };
+		0D47D5CEC3B075EE8EB6F770 /* MoodScalePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54546B6BCECE27DE77817A40 /* MoodScalePicker.swift */; };
+		0DFD8C02C5B561C97FE70755 /* AppReleaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93750180EA4EAB967CA34F1 /* AppReleaseInfo.swift */; };
+		0FDDF8D7FBF8A1643FDB5F23 /* WorkoutSummarySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910E9A421BD4B5C10EFCB21 /* WorkoutSummarySheet.swift */; };
+		104B113F8083C5217E5C564E /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93194958A5E521D87C80BF51 /* WatchConnectivity.framework */; };
+		12999E49A1E3F457C9B97D36 /* CalendarSyncRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED7401F688D49AEA43C4162 /* CalendarSyncRecord.swift */; };
+		143C42BA417ED88CA2B370B8 /* DataResetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B74CDBADD8A57C530ECBF68 /* DataResetService.swift */; };
+		1748C82CFD69C51139BF20A6 /* HealthKitServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D7D21773D78A622927A085 /* HealthKitServiceTests.swift */; };
+		1953422CC6A5C8B517F25CB8 /* GuidedStretchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B368E6BD0F1261E229393 /* GuidedStretchCoordinator.swift */; };
+		19C29FB67099B52DA15F2FEF /* MoodCheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE2D63CD28B7F4D409BC5BE /* MoodCheckIn.swift */; };
+		1AB36745B222CCCF7BFE9AAA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E8B124B933F06730091C18 /* UIKit.framework */; };
+		1BF62592AF860EC26696A0E5 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B653531E98C307F5B54C985F /* TodayView.swift */; };
+		1C31BAE348A729D3A93FFE35 /* JournalFilterSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D4E38E530C230717F1C064 /* JournalFilterSheet.swift */; };
+		22938A87BA41627EB73297EA /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0597C70E85DDD85020F1D0 /* AppModelTests.swift */; };
+		24593898E05F85812A4C94E2 /* StreakWidgetSnapshotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97685030AE7F4009053961E /* StreakWidgetSnapshotStore.swift */; };
+		2A07CCF81F4450EA89721918 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47845E9259712F70F2282CB6 /* AppTheme.swift */; };
+		2D29E6FED1D8BA7FC9EEA5BF /* StreakWidgetSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE6A946B5442C1AA9A0B628 /* StreakWidgetSyncService.swift */; };
+		30438548CD86B6E6C06F6BC3 /* ICSExporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BD5A9A0D4A69D92A6FEAA1 /* ICSExporterTests.swift */; };
+		3169ED0A802966C65B53B83E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2232D5BAB69CF75B7D03E64 /* AVFoundation.framework */; };
+		33BA2961C8C0CF232FE3DE1A /* StreakWidgetSnapshotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97685030AE7F4009053961E /* StreakWidgetSnapshotStore.swift */; };
+		35004CC72710D0533DED0D0A /* WatchSnapshotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40DAB072227DF5D9C8E6856 /* WatchSnapshotModels.swift */; };
+		36B705DC1D24FE17CF603222 /* StreakWidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673F93AF9F48A2FD0D5D015B /* StreakWidgetSnapshot.swift */; };
+		36E6486913725BADF9BAC02B /* MealEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E41BF8F9697A8F9F11CC2 /* MealEntry.swift */; };
+		3942436BC267E27EA85B9605 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175BE32CCD07CEB09014C5FF /* HealthKit.framework */; };
+		41279EC8A1D0914C598A7D77 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC55E9819F85762EAEC936 /* OnboardingView.swift */; };
+		4530C94B8C8025B8C5081A25 /* AtroWidgetIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE644F2733156BB38A681E08 /* AtroWidgetIntents.swift */; };
+		4B6229B9EAD6AA8567735A9B /* AtroAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3165E7F634E2FBEC71438F08 /* AtroAppTests.swift */; };
+		4CCDBBEF8C84CBAB82DDCB4B /* CalendarEventBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F83B4D9B4F3A68E22766A5B /* CalendarEventBuilder.swift */; };
+		4D300DDA3C0D9EC7474C3158 /* AtroStreakWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF473E34CCB17BFE8A6DA87 /* AtroStreakWidgetView.swift */; };
+		519D75BB150BA5456E88FA9E /* ScheduleWorkoutSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909A7D765EC56C1B4AAF270E /* ScheduleWorkoutSheet.swift */; };
+		540C6A64F4257E8F02C776F4 /* AtroWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0056AB5202723F91835DF981 /* AtroWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		541C8E59199B68B59832E027 /* WatchSnapshotModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40DAB072227DF5D9C8E6856 /* WatchSnapshotModels.swift */; };
+		55CDE09CC7727E78ED6EEC58 /* WorkoutSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF38A0E9BD62D8BB6DDD432 /* WorkoutSessionView.swift */; };
+		60FD0433E7DD527F5D3E99C6 /* JournalFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B615FDFB7D646DE1D30C548E /* JournalFilterTests.swift */; };
+		632C46902670890031978458 /* EmptyStateCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553BF7CBA3A405C0864AC0E /* EmptyStateCard.swift */; };
+		67B7AF38F0F4D05CAE8AA869 /* AtroStreakWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6821FDE1365D176D7CD7F44E /* AtroStreakWidget.swift */; };
+		6A3A625C90161877D02F1043 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A6C9B2A02237C232CC79F /* PrivacyInfo.xcprivacy */; };
+		6B49BAAC55B222C7B874A0DC /* WorkoutTemplateKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9850ACB6C768B9AF6F92C6D /* WorkoutTemplateKind.swift */; };
+		72F44AAC1A22FBFEE92F0045 /* TemplateSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB7B5847E0967C3AA23EF0 /* TemplateSnapshot.swift */; };
+		77651D9671ADECDEBE290C91 /* StretchCuePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CFB0114F890BE9E063C51A /* StretchCuePlayer.swift */; };
+		796AF700CDF057EB673CFC63 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52856AB6606B3ADBC77C945 /* RootTabView.swift */; };
+		799F1E92243D30C3A1AC76EA /* ICSExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2C440F659CC9E7AFE1D40D /* ICSExporter.swift */; };
+		7EDED0019C152220EE1D532A /* AtroWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DB2760A81E4B3B9BCDB637 /* AtroWatchApp.swift */; };
+		800E479B9D35225A781CD666 /* WorkoutDraftFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA10AAE71CDF3E95589340F /* WorkoutDraftFactoryTests.swift */; };
+		838BB23E2FD2DAE645706016 /* WorkoutSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269DBC22A99242BE9E22D46F /* WorkoutSessionViewModel.swift */; };
+		84AB43E049085CC5B8D9B0F3 /* LoggedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D78073D5F8897EB9D9A75B /* LoggedWorkout.swift */; };
+		861A544994BF0B385ECC9286 /* WorkoutDrafts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B8620B9D6B79BAC4273D1E /* WorkoutDrafts.swift */; };
+		8852C21E2A782E90C183DCA0 /* StreakWidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673F93AF9F48A2FD0D5D015B /* StreakWidgetSnapshot.swift */; };
+		89092611A017740767A17904 /* HapticClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ACE2BEF2D61AC1A3359702 /* HapticClient.swift */; };
+		8CBC4FF355E518D0FAB99732 /* GuidedStretchCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C1FFAD7C4380C2741BBF8 /* GuidedStretchCoordinatorTests.swift */; };
+		8D48FDE80F075FE80B8D5F5F /* WatchHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D864135000075C8C5C763E4B /* WatchHomeView.swift */; };
+		947122BA3FB90126FFEC71F0 /* WatchSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BF28A9F619900E610D4E99 /* WatchSyncService.swift */; };
+		94824811B5CA312F1557D2FF /* PlannedWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112028A61524077B5202E307 /* PlannedWorkout.swift */; };
+		98D100532D0C658E5C41288E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C545A70C7C636B64DACB1DE7 /* Assets.xcassets */; };
+		98E38CE35787621E1BD0B5D9 /* DataResetServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6602781A2A48B259C447A668 /* DataResetServiceTests.swift */; };
+		9CF7E598BC533EB471FA4FEA /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7214445D23599F8174F630 /* AppModel.swift */; };
+		A39DF328ACCF9D72E91C172C /* WorkoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B7938522600DA5A7A1C079 /* WorkoutTemplate.swift */; };
+		A769FFAE5283332C622A177D /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A337A25838ED5E7B04BDE /* AppIntents.framework */; };
+		B0AAE7477F6D30DD08D276E5 /* StretchSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3E8DA848BF15F860557D67 /* StretchSessionView.swift */; };
+		B506B2CE93D0BC0DD018551A /* TemplateEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB83F21CD52CA08016B99FB /* TemplateEditorView.swift */; };
+		B59281D22666990B4159D14D /* KeyboardSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E290309A1DD45F227A66402F /* KeyboardSupport.swift */; };
+		B8A614329163BFDCEABBCABC /* StreaksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8CCECD6361144374A7DE7F /* StreaksView.swift */; };
+		B909FDF31C4FA34CE9BD10B4 /* WatchAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37241588C06DBBB274510433 /* WatchAppModel.swift */; };
+		BD7D2F2D43E5DC58383E1BEC /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B56DDA39C426CE8E2B07857 /* PlanView.swift */; };
+		BDC329F3987D4ECBC61B433F /* StreakWidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673F93AF9F48A2FD0D5D015B /* StreakWidgetSnapshot.swift */; };
+		C1B2506279DA0645BEA0CF41 /* CalendarEventBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1963ADFC21AACA1CFE8FAFE5 /* CalendarEventBuilderTests.swift */; };
+		C6CCCC0743D937C3357D2C9B /* TemplateDraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2C8DAB6E355755BC7020C /* TemplateDraftTests.swift */; };
+		CB55AAAF9207CC338B208B58 /* WorkoutBuddyInsightSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66B35A5D1E51173BD18D5A4 /* WorkoutBuddyInsightSnapshot.swift */; };
+		D20AD62539ABF9BE90204227 /* AtroWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BECF682AA8955A4A68569 /* AtroWidgetsBundle.swift */; };
+		D3D991B3E280AD6A4549055C /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93194958A5E521D87C80BF51 /* WatchConnectivity.framework */; };
+		D49E6E440F0AAEF206820A2D /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7443537B33F62B3FD2AABA /* SwiftUI.framework */; };
+		D73C84E9C7C2A3F7B63C4743 /* StreakWidgetSnapshotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97685030AE7F4009053961E /* StreakWidgetSnapshotStore.swift */; };
+		DB153EAD5F7A4816E11DCC00 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354E0B05A27921420859427 /* JournalView.swift */; };
+		DFAFDF88DDB387131FE9A902 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A34AF8465488C8F22257C /* SettingsView.swift */; };
+		E1F010ACD9CECEB6DF15A840 /* AtroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EEBE28A4761FC20E3C9052 /* AtroApp.swift */; };
+		E5862F1AAF32E6D15660ED34 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A337A25838ED5E7B04BDE /* AppIntents.framework */; };
+		EC89EBBF502E5FABD95F91FA /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D20226F46CBFC644A202C0 /* PreviewContainer.swift */; };
+		F0B168E741245ADE6D013E4F /* HealthKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642224B13BD6A850496C023 /* HealthKitService.swift */; };
+		F8EC8107B374FAD919F56019 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C04B94C84170F84BDB15BE /* AppSettings.swift */; };
+		FAF7B66F794DD0AEBE4E662C /* MealEditorSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDE7623FAA4020C8CE4446F /* MealEditorSheet.swift */; };
+		FD66B11C776359250A102027 /* SeedDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4FA86C1C9EE5C1FE0B30B5 /* SeedDataService.swift */; };
+		FDA39C110883B822B45BB598 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1196DA6DCDE6F545BC7254A7 /* WidgetKit.framework */; };
+		FE7DAC0D3961280E1F2EA7D3 /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2C9531376D89CF14277D8C /* CalendarService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8DAA9DF7379F44CFE73E31B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9934BA9F89DE73F1090FFA7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1893A72C3BB841FD05BA187F;
+			remoteInfo = AtroWidgets;
+		};
+		CACAF04A975D6C683DC1BF4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9934BA9F89DE73F1090FFA7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CD7CC55E1ABD5CF3F10DA9C;
+			remoteInfo = Atro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6B432E9F28128C992B47FB31 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				540C6A64F4257E8F02C776F4 /* AtroWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0056AB5202723F91835DF981 /* AtroWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = AtroWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D3FD09D574B3B1416C557D /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		07E2C8DAB6E355755BC7020C /* TemplateDraftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateDraftTests.swift; sourceTree = "<group>"; };
+		0910E9A421BD4B5C10EFCB21 /* WorkoutSummarySheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSummarySheet.swift; sourceTree = "<group>"; };
+		0DD36DA862F1509E0828E3D5 /* StreakCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCounter.swift; sourceTree = "<group>"; };
+		0DFC55E9819F85762EAEC936 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		0EF473E34CCB17BFE8A6DA87 /* AtroStreakWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroStreakWidgetView.swift; sourceTree = "<group>"; };
+		112028A61524077B5202E307 /* PlannedWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannedWorkout.swift; sourceTree = "<group>"; };
+		1196DA6DCDE6F545BC7254A7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		11D7F23BE1C260C68EA9CE0C /* AtroWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AtroWidgets.entitlements; sourceTree = "<group>"; };
+		1354E0B05A27921420859427 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		14BD5A9A0D4A69D92A6FEAA1 /* ICSExporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICSExporterTests.swift; sourceTree = "<group>"; };
+		175BE32CCD07CEB09014C5FF /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		17EEBE28A4761FC20E3C9052 /* AtroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroApp.swift; sourceTree = "<group>"; };
+		1963ADFC21AACA1CFE8FAFE5 /* CalendarEventBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventBuilderTests.swift; sourceTree = "<group>"; };
+		1CDE7623FAA4020C8CE4446F /* MealEditorSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealEditorSheet.swift; sourceTree = "<group>"; };
+		1EB880234D4A4D5677F917B1 /* Atro.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Atro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		20E8B124B933F06730091C18 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		256A34AF8465488C8F22257C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		269DBC22A99242BE9E22D46F /* WorkoutSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionViewModel.swift; sourceTree = "<group>"; };
+		2CF38A0E9BD62D8BB6DDD432 /* WorkoutSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionView.swift; sourceTree = "<group>"; };
+		307C24DD61EF6361618FC6A7 /* AtroWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtroWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3165E7F634E2FBEC71438F08 /* AtroAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroAppTests.swift; sourceTree = "<group>"; };
+		37241588C06DBBB274510433 /* WatchAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppModel.swift; sourceTree = "<group>"; };
+		3E00A22F7387D3D2F8AF06ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		43D20226F46CBFC644A202C0 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
+		46B7938522600DA5A7A1C079 /* WorkoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplate.swift; sourceTree = "<group>"; };
+		47476C48EF0B6B8D741C3D4C /* StreakCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakCalculatorTests.swift; sourceTree = "<group>"; };
+		47845E9259712F70F2282CB6 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		49D78073D5F8897EB9D9A75B /* LoggedWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedWorkout.swift; sourceTree = "<group>"; };
+		4B8CCECD6361144374A7DE7F /* StreaksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreaksView.swift; sourceTree = "<group>"; };
+		4C4BECF682AA8955A4A68569 /* AtroWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroWidgetsBundle.swift; sourceTree = "<group>"; };
+		4FE6A946B5442C1AA9A0B628 /* StreakWidgetSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakWidgetSyncService.swift; sourceTree = "<group>"; };
+		54546B6BCECE27DE77817A40 /* MoodScalePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodScalePicker.swift; sourceTree = "<group>"; };
+		54CFB0114F890BE9E063C51A /* StretchCuePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchCuePlayer.swift; sourceTree = "<group>"; };
+		5B0597C70E85DDD85020F1D0 /* AppModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTests.swift; sourceTree = "<group>"; };
+		5E3E8DA848BF15F860557D67 /* StretchSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchSessionView.swift; sourceTree = "<group>"; };
+		5F4A6C9B2A02237C232CC79F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		60D7D21773D78A622927A085 /* HealthKitServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitServiceTests.swift; sourceTree = "<group>"; };
+		6602781A2A48B259C447A668 /* DataResetServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResetServiceTests.swift; sourceTree = "<group>"; };
+		662F3C8CA1BAA035F01B20AF /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		673F93AF9F48A2FD0D5D015B /* StreakWidgetSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakWidgetSnapshot.swift; sourceTree = "<group>"; };
+		6821FDE1365D176D7CD7F44E /* AtroStreakWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroStreakWidget.swift; sourceTree = "<group>"; };
+		6D7443537B33F62B3FD2AABA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		6DA10AAE71CDF3E95589340F /* WorkoutDraftFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDraftFactoryTests.swift; sourceTree = "<group>"; };
+		7B56DDA39C426CE8E2B07857 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
+		81BF28A9F619900E610D4E99 /* WatchSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSyncService.swift; sourceTree = "<group>"; };
+		82B8620B9D6B79BAC4273D1E /* WorkoutDrafts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDrafts.swift; sourceTree = "<group>"; };
+		89DB2760A81E4B3B9BCDB637 /* AtroWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroWatchApp.swift; sourceTree = "<group>"; };
+		8ED7401F688D49AEA43C4162 /* CalendarSyncRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSyncRecord.swift; sourceTree = "<group>"; };
+		8F83B4D9B4F3A68E22766A5B /* CalendarEventBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventBuilder.swift; sourceTree = "<group>"; };
+		909A7D765EC56C1B4AAF270E /* ScheduleWorkoutSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWorkoutSheet.swift; sourceTree = "<group>"; };
+		93194958A5E521D87C80BF51 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		9B74CDBADD8A57C530ECBF68 /* DataResetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResetService.swift; sourceTree = "<group>"; };
+		9D2C440F659CC9E7AFE1D40D /* ICSExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICSExporter.swift; sourceTree = "<group>"; };
+		9DFB7B5847E0967C3AA23EF0 /* TemplateSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateSnapshot.swift; sourceTree = "<group>"; };
+		9F4CECE6F461C41DAF6C704B /* JournalFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFilter.swift; sourceTree = "<group>"; };
+		A0D4E38E530C230717F1C064 /* JournalFilterSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFilterSheet.swift; sourceTree = "<group>"; };
+		A17C1FFAD7C4380C2741BBF8 /* GuidedStretchCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedStretchCoordinatorTests.swift; sourceTree = "<group>"; };
+		A52856AB6606B3ADBC77C945 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		AC1E41BF8F9697A8F9F11CC2 /* MealEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealEntry.swift; sourceTree = "<group>"; };
+		AD7A337A25838ED5E7B04BDE /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
+		B40DAB072227DF5D9C8E6856 /* WatchSnapshotModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSnapshotModels.swift; sourceTree = "<group>"; };
+		B615FDFB7D646DE1D30C548E /* JournalFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFilterTests.swift; sourceTree = "<group>"; };
+		B653531E98C307F5B54C985F /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		B69B368E6BD0F1261E229393 /* GuidedStretchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedStretchCoordinator.swift; sourceTree = "<group>"; };
+		B97685030AE7F4009053961E /* StreakWidgetSnapshotStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakWidgetSnapshotStore.swift; sourceTree = "<group>"; };
+		B9850ACB6C768B9AF6F92C6D /* WorkoutTemplateKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTemplateKind.swift; sourceTree = "<group>"; };
+		BCE2D63CD28B7F4D409BC5BE /* MoodCheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCheckIn.swift; sourceTree = "<group>"; };
+		BE644F2733156BB38A681E08 /* AtroWidgetIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroWidgetIntents.swift; sourceTree = "<group>"; };
+		C545A70C7C636B64DACB1DE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C642224B13BD6A850496C023 /* HealthKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitService.swift; sourceTree = "<group>"; };
+		CE2C9531376D89CF14277D8C /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
+		D1ACE2BEF2D61AC1A3359702 /* HapticClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticClient.swift; sourceTree = "<group>"; };
+		D864135000075C8C5C763E4B /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
+		E290309A1DD45F227A66402F /* KeyboardSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSupport.swift; sourceTree = "<group>"; };
+		E553BF7CBA3A405C0864AC0E /* EmptyStateCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCard.swift; sourceTree = "<group>"; };
+		ECB83F21CD52CA08016B99FB /* TemplateEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateEditorView.swift; sourceTree = "<group>"; };
+		EE4FA86C1C9EE5C1FE0B30B5 /* SeedDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedDataService.swift; sourceTree = "<group>"; };
+		EE7214445D23599F8174F630 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		F2232D5BAB69CF75B7D03E64 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F5C04B94C84170F84BDB15BE /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		F66B35A5D1E51173BD18D5A4 /* WorkoutBuddyInsightSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutBuddyInsightSnapshot.swift; sourceTree = "<group>"; };
+		F93750180EA4EAB967CA34F1 /* AppReleaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReleaseInfo.swift; sourceTree = "<group>"; };
+		F96E389DE6EA30C56E8DC193 /* AtroTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AtroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2537051433FCC0C8E6E9A3A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				104B113F8083C5217E5C564E /* WatchConnectivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		790F170DF7D5825ED773D2A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3169ED0A802966C65B53B83E /* AVFoundation.framework in Frameworks */,
+				A769FFAE5283332C622A177D /* AppIntents.framework in Frameworks */,
+				028D756C12E07BE0D3535C89 /* EventKit.framework in Frameworks */,
+				3942436BC267E27EA85B9605 /* HealthKit.framework in Frameworks */,
+				1AB36745B222CCCF7BFE9AAA /* UIKit.framework in Frameworks */,
+				D3D991B3E280AD6A4549055C /* WatchConnectivity.framework in Frameworks */,
+				05E518F41102B807D36D6641 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA31CE28B91FCDE7CDFBF67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5862F1AAF32E6D15660ED34 /* AppIntents.framework in Frameworks */,
+				D49E6E440F0AAEF206820A2D /* SwiftUI.framework in Frameworks */,
+				FDA39C110883B822B45BB598 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		063D2BEBA91AB63137F0B537 = {
+			isa = PBXGroup;
+			children = (
+				2AE814AB28834C69C7FD5D56 /* Atro */,
+				5E9A8F1115445F987C1BFAE1 /* AtroTests */,
+				3792B2011289497F4A883BD6 /* AtroWatch */,
+				498A7C1B9FF59DF5865C9772 /* AtroWidgets */,
+				EC528E493AB0E6D23B231200 /* Shared */,
+				A5B326318CC643862ECCCB9C /* Frameworks */,
+				181483B3DF93CCF182FA68C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0A0BE2499336EF364B4D18F3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				89DB2760A81E4B3B9BCDB637 /* AtroWatchApp.swift */,
+				37241588C06DBBB274510433 /* WatchAppModel.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		15B4DF4CCE8A7C5574494E0F /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				B69B368E6BD0F1261E229393 /* GuidedStretchCoordinator.swift */,
+				5E3E8DA848BF15F860557D67 /* StretchSessionView.swift */,
+				2CF38A0E9BD62D8BB6DDD432 /* WorkoutSessionView.swift */,
+				269DBC22A99242BE9E22D46F /* WorkoutSessionViewModel.swift */,
+				0910E9A421BD4B5C10EFCB21 /* WorkoutSummarySheet.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		181483B3DF93CCF182FA68C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1EB880234D4A4D5677F917B1 /* Atro.app */,
+				F96E389DE6EA30C56E8DC193 /* AtroTests.xctest */,
+				307C24DD61EF6361618FC6A7 /* AtroWatch.app */,
+				0056AB5202723F91835DF981 /* AtroWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		21ACEAEC9F152907DB2C1B23 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0DFC55E9819F85762EAEC936 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2AE814AB28834C69C7FD5D56 /* Atro */ = {
+			isa = PBXGroup;
+			children = (
+				8E37FE7275114969DA96B110 /* App */,
+				8E6653AD42D79C08FC09F02B /* Components */,
+				C41F40B7153CC7E9592A58EC /* Features */,
+				482D65C1738C5ED1D8407D5F /* Models */,
+				E1604BA6924810426FA1B9E3 /* Preview */,
+				755579F02A935B85214CF8D7 /* Resources */,
+				8A563E7279C7D0063647D860 /* Services */,
+			);
+			path = Atro;
+			sourceTree = "<group>";
+		};
+		3179587CCFCA79155D3DC40E /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				B653531E98C307F5B54C985F /* TodayView.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		33D352B9357F7490F38A5F42 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				256A34AF8465488C8F22257C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3792B2011289497F4A883BD6 /* AtroWatch */ = {
+			isa = PBXGroup;
+			children = (
+				0A0BE2499336EF364B4D18F3 /* App */,
+				566ED09A67F02AE8C548C120 /* Features */,
+			);
+			path = AtroWatch;
+			sourceTree = "<group>";
+		};
+		39A0B132A08BFDAD88A5F58C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				11D7F23BE1C260C68EA9CE0C /* AtroWidgets.entitlements */,
+				3E00A22F7387D3D2F8AF06ED /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		482D65C1738C5ED1D8407D5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5C04B94C84170F84BDB15BE /* AppSettings.swift */,
+				8ED7401F688D49AEA43C4162 /* CalendarSyncRecord.swift */,
+				49D78073D5F8897EB9D9A75B /* LoggedWorkout.swift */,
+				AC1E41BF8F9697A8F9F11CC2 /* MealEntry.swift */,
+				BCE2D63CD28B7F4D409BC5BE /* MoodCheckIn.swift */,
+				112028A61524077B5202E307 /* PlannedWorkout.swift */,
+				0DD36DA862F1509E0828E3D5 /* StreakCounter.swift */,
+				F66B35A5D1E51173BD18D5A4 /* WorkoutBuddyInsightSnapshot.swift */,
+				46B7938522600DA5A7A1C079 /* WorkoutTemplate.swift */,
+				B9850ACB6C768B9AF6F92C6D /* WorkoutTemplateKind.swift */,
+				FD38656FC418AFF6E923BBAB /* Supporting */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		498A7C1B9FF59DF5865C9772 /* AtroWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				6821FDE1365D176D7CD7F44E /* AtroStreakWidget.swift */,
+				0EF473E34CCB17BFE8A6DA87 /* AtroStreakWidgetView.swift */,
+				BE644F2733156BB38A681E08 /* AtroWidgetIntents.swift */,
+				4C4BECF682AA8955A4A68569 /* AtroWidgetsBundle.swift */,
+				39A0B132A08BFDAD88A5F58C /* Resources */,
+			);
+			path = AtroWidgets;
+			sourceTree = "<group>";
+		};
+		5013F675ED3C755D4E571E39 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				D1ACE2BEF2D61AC1A3359702 /* HapticClient.swift */,
+				54CFB0114F890BE9E063C51A /* StretchCuePlayer.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		566ED09A67F02AE8C548C120 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				8FAA50C46EAAF7D3FE6ABD18 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		5E9A8F1115445F987C1BFAE1 /* AtroTests */ = {
+			isa = PBXGroup;
+			children = (
+				5B0597C70E85DDD85020F1D0 /* AppModelTests.swift */,
+				3165E7F634E2FBEC71438F08 /* AtroAppTests.swift */,
+				1963ADFC21AACA1CFE8FAFE5 /* CalendarEventBuilderTests.swift */,
+				6602781A2A48B259C447A668 /* DataResetServiceTests.swift */,
+				A17C1FFAD7C4380C2741BBF8 /* GuidedStretchCoordinatorTests.swift */,
+				60D7D21773D78A622927A085 /* HealthKitServiceTests.swift */,
+				14BD5A9A0D4A69D92A6FEAA1 /* ICSExporterTests.swift */,
+				B615FDFB7D646DE1D30C548E /* JournalFilterTests.swift */,
+				47476C48EF0B6B8D741C3D4C /* StreakCalculatorTests.swift */,
+				07E2C8DAB6E355755BC7020C /* TemplateDraftTests.swift */,
+				6DA10AAE71CDF3E95589340F /* WorkoutDraftFactoryTests.swift */,
+			);
+			path = AtroTests;
+			sourceTree = "<group>";
+		};
+		6ECA7BCA2E143CA7828E6E2D /* Streaks */ = {
+			isa = PBXGroup;
+			children = (
+				4B8CCECD6361144374A7DE7F /* StreaksView.swift */,
+			);
+			path = Streaks;
+			sourceTree = "<group>";
+		};
+		755579F02A935B85214CF8D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C545A70C7C636B64DACB1DE7 /* Assets.xcassets */,
+				5F4A6C9B2A02237C232CC79F /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		78B6494DFF199CA9A2E35C2D /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				A0D4E38E530C230717F1C064 /* JournalFilterSheet.swift */,
+				1354E0B05A27921420859427 /* JournalView.swift */,
+				1CDE7623FAA4020C8CE4446F /* MealEditorSheet.swift */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		7C2849F1B7DE8581E35AC743 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				673F93AF9F48A2FD0D5D015B /* StreakWidgetSnapshot.swift */,
+				B97685030AE7F4009053961E /* StreakWidgetSnapshotStore.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		8A563E7279C7D0063647D860 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				97EDD57677CDC1D42840D3E4 /* Calendar */,
+				9A1E8CBC4A8C76A07FD6B8CE /* Connectivity */,
+				BDD0C7AD2E77A35296499D96 /* Data */,
+				FF1F4A6305012B3725E09E0F /* Health */,
+				5013F675ED3C755D4E571E39 /* System */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8B7E13391A36D917683D4B5F /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				B40DAB072227DF5D9C8E6856 /* WatchSnapshotModels.swift */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		8E37FE7275114969DA96B110 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				EE7214445D23599F8174F630 /* AppModel.swift */,
+				F93750180EA4EAB967CA34F1 /* AppReleaseInfo.swift */,
+				47845E9259712F70F2282CB6 /* AppTheme.swift */,
+				17EEBE28A4761FC20E3C9052 /* AtroApp.swift */,
+				A52856AB6606B3ADBC77C945 /* RootTabView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8E6653AD42D79C08FC09F02B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E553BF7CBA3A405C0864AC0E /* EmptyStateCard.swift */,
+				E290309A1DD45F227A66402F /* KeyboardSupport.swift */,
+				54546B6BCECE27DE77817A40 /* MoodScalePicker.swift */,
+				662F3C8CA1BAA035F01B20AF /* ShareSheet.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8FAA50C46EAAF7D3FE6ABD18 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D864135000075C8C5C763E4B /* WatchHomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		97EDD57677CDC1D42840D3E4 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				8F83B4D9B4F3A68E22766A5B /* CalendarEventBuilder.swift */,
+				CE2C9531376D89CF14277D8C /* CalendarService.swift */,
+				9D2C440F659CC9E7AFE1D40D /* ICSExporter.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		9A1E8CBC4A8C76A07FD6B8CE /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				81BF28A9F619900E610D4E99 /* WatchSyncService.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		A5B326318CC643862ECCCB9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD7A337A25838ED5E7B04BDE /* AppIntents.framework */,
+				F2232D5BAB69CF75B7D03E64 /* AVFoundation.framework */,
+				04D3FD09D574B3B1416C557D /* EventKit.framework */,
+				175BE32CCD07CEB09014C5FF /* HealthKit.framework */,
+				6D7443537B33F62B3FD2AABA /* SwiftUI.framework */,
+				20E8B124B933F06730091C18 /* UIKit.framework */,
+				93194958A5E521D87C80BF51 /* WatchConnectivity.framework */,
+				1196DA6DCDE6F545BC7254A7 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDD0C7AD2E77A35296499D96 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9B74CDBADD8A57C530ECBF68 /* DataResetService.swift */,
+				EE4FA86C1C9EE5C1FE0B30B5 /* SeedDataService.swift */,
+				4FE6A946B5442C1AA9A0B628 /* StreakWidgetSyncService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C41F40B7153CC7E9592A58EC /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				78B6494DFF199CA9A2E35C2D /* Journal */,
+				15B4DF4CCE8A7C5574494E0F /* Logging */,
+				21ACEAEC9F152907DB2C1B23 /* Onboarding */,
+				E3B783A918ED985E9F299628 /* Plan */,
+				33D352B9357F7490F38A5F42 /* Settings */,
+				6ECA7BCA2E143CA7828E6E2D /* Streaks */,
+				3179587CCFCA79155D3DC40E /* Today */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		E1604BA6924810426FA1B9E3 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				43D20226F46CBFC644A202C0 /* PreviewContainer.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		E3B783A918ED985E9F299628 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				7B56DDA39C426CE8E2B07857 /* PlanView.swift */,
+				909A7D765EC56C1B4AAF270E /* ScheduleWorkoutSheet.swift */,
+				ECB83F21CD52CA08016B99FB /* TemplateEditorView.swift */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		EC528E493AB0E6D23B231200 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				8B7E13391A36D917683D4B5F /* Watch */,
+				7C2849F1B7DE8581E35AC743 /* Widgets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FD38656FC418AFF6E923BBAB /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				9F4CECE6F461C41DAF6C704B /* JournalFilter.swift */,
+				9DFB7B5847E0967C3AA23EF0 /* TemplateSnapshot.swift */,
+				82B8620B9D6B79BAC4273D1E /* WorkoutDrafts.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		FF1F4A6305012B3725E09E0F /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				C642224B13BD6A850496C023 /* HealthKitService.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1893A72C3BB841FD05BA187F /* AtroWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C020958D98B418B67CCC1362 /* Build configuration list for PBXNativeTarget "AtroWidgets" */;
+			buildPhases = (
+				FA921CD83E49BB7BFAF7AEF1 /* Sources */,
+				7DA31CE28B91FCDE7CDFBF67 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AtroWidgets;
+			packageProductDependencies = (
+			);
+			productName = AtroWidgets;
+			productReference = 0056AB5202723F91835DF981 /* AtroWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		3CD7CC55E1ABD5CF3F10DA9C /* Atro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77B41EDB3571E135E8220C74 /* Build configuration list for PBXNativeTarget "Atro" */;
+			buildPhases = (
+				51929C904BF206EA19925CAE /* Sources */,
+				BC9450EC932470AF9EE9DE7F /* Resources */,
+				790F170DF7D5825ED773D2A3 /* Frameworks */,
+				6B432E9F28128C992B47FB31 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE979FCD865D0672AB11FB80 /* PBXTargetDependency */,
+			);
+			name = Atro;
+			packageProductDependencies = (
+			);
+			productName = Atro;
+			productReference = 1EB880234D4A4D5677F917B1 /* Atro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		55ADE2C36914C08B60E906E3 /* AtroWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5924065D1A2C7D2F5A9AB63 /* Build configuration list for PBXNativeTarget "AtroWatch" */;
+			buildPhases = (
+				F9BFAC045B5BF6CB0AA87135 /* Sources */,
+				2537051433FCC0C8E6E9A3A3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AtroWatch;
+			packageProductDependencies = (
+			);
+			productName = AtroWatch;
+			productReference = 307C24DD61EF6361618FC6A7 /* AtroWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D479122A7C3F3A987B77704F /* AtroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6080290F4A21492BF34E8E4A /* Build configuration list for PBXNativeTarget "AtroTests" */;
+			buildPhases = (
+				EF613C9B4AABCD08CE889C85 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F166B1FA6823C3F983C4A78 /* PBXTargetDependency */,
+			);
+			name = AtroTests;
+			packageProductDependencies = (
+			);
+			productName = AtroTests;
+			productReference = F96E389DE6EA30C56E8DC193 /* AtroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9934BA9F89DE73F1090FFA7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1893A72C3BB841FD05BA187F = {
+						DevelopmentTeam = J29924Y5UF;
+						ProvisioningStyle = Automatic;
+					};
+					3CD7CC55E1ABD5CF3F10DA9C = {
+						DevelopmentTeam = J29924Y5UF;
+						ProvisioningStyle = Automatic;
+					};
+					55ADE2C36914C08B60E906E3 = {
+						DevelopmentTeam = J29924Y5UF;
+						ProvisioningStyle = Automatic;
+					};
+					D479122A7C3F3A987B77704F = {
+						DevelopmentTeam = J29924Y5UF;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A74096DFDDD0F0AD9EF708C6 /* Build configuration list for PBXProject "Atro" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 063D2BEBA91AB63137F0B537;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3CD7CC55E1ABD5CF3F10DA9C /* Atro */,
+				D479122A7C3F3A987B77704F /* AtroTests */,
+				55ADE2C36914C08B60E906E3 /* AtroWatch */,
+				1893A72C3BB841FD05BA187F /* AtroWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BC9450EC932470AF9EE9DE7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98D100532D0C658E5C41288E /* Assets.xcassets in Resources */,
+				6A3A625C90161877D02F1043 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		51929C904BF206EA19925CAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CF7E598BC533EB471FA4FEA /* AppModel.swift in Sources */,
+				0DFD8C02C5B561C97FE70755 /* AppReleaseInfo.swift in Sources */,
+				F8EC8107B374FAD919F56019 /* AppSettings.swift in Sources */,
+				2A07CCF81F4450EA89721918 /* AppTheme.swift in Sources */,
+				E1F010ACD9CECEB6DF15A840 /* AtroApp.swift in Sources */,
+				4CCDBBEF8C84CBAB82DDCB4B /* CalendarEventBuilder.swift in Sources */,
+				FE7DAC0D3961280E1F2EA7D3 /* CalendarService.swift in Sources */,
+				12999E49A1E3F457C9B97D36 /* CalendarSyncRecord.swift in Sources */,
+				143C42BA417ED88CA2B370B8 /* DataResetService.swift in Sources */,
+				632C46902670890031978458 /* EmptyStateCard.swift in Sources */,
+				1953422CC6A5C8B517F25CB8 /* GuidedStretchCoordinator.swift in Sources */,
+				89092611A017740767A17904 /* HapticClient.swift in Sources */,
+				F0B168E741245ADE6D013E4F /* HealthKitService.swift in Sources */,
+				799F1E92243D30C3A1AC76EA /* ICSExporter.swift in Sources */,
+				0657BCA87B0B1587994F020E /* JournalFilter.swift in Sources */,
+				1C31BAE348A729D3A93FFE35 /* JournalFilterSheet.swift in Sources */,
+				DB153EAD5F7A4816E11DCC00 /* JournalView.swift in Sources */,
+				B59281D22666990B4159D14D /* KeyboardSupport.swift in Sources */,
+				84AB43E049085CC5B8D9B0F3 /* LoggedWorkout.swift in Sources */,
+				FAF7B66F794DD0AEBE4E662C /* MealEditorSheet.swift in Sources */,
+				36E6486913725BADF9BAC02B /* MealEntry.swift in Sources */,
+				19C29FB67099B52DA15F2FEF /* MoodCheckIn.swift in Sources */,
+				0D47D5CEC3B075EE8EB6F770 /* MoodScalePicker.swift in Sources */,
+				41279EC8A1D0914C598A7D77 /* OnboardingView.swift in Sources */,
+				BD7D2F2D43E5DC58383E1BEC /* PlanView.swift in Sources */,
+				94824811B5CA312F1557D2FF /* PlannedWorkout.swift in Sources */,
+				EC89EBBF502E5FABD95F91FA /* PreviewContainer.swift in Sources */,
+				796AF700CDF057EB673CFC63 /* RootTabView.swift in Sources */,
+				519D75BB150BA5456E88FA9E /* ScheduleWorkoutSheet.swift in Sources */,
+				FD66B11C776359250A102027 /* SeedDataService.swift in Sources */,
+				DFAFDF88DDB387131FE9A902 /* SettingsView.swift in Sources */,
+				072CA950B066A2635462F219 /* ShareSheet.swift in Sources */,
+				06A6D17479652871AEEF3000 /* StreakCounter.swift in Sources */,
+				8852C21E2A782E90C183DCA0 /* StreakWidgetSnapshot.swift in Sources */,
+				33BA2961C8C0CF232FE3DE1A /* StreakWidgetSnapshotStore.swift in Sources */,
+				2D29E6FED1D8BA7FC9EEA5BF /* StreakWidgetSyncService.swift in Sources */,
+				B8A614329163BFDCEABBCABC /* StreaksView.swift in Sources */,
+				77651D9671ADECDEBE290C91 /* StretchCuePlayer.swift in Sources */,
+				B0AAE7477F6D30DD08D276E5 /* StretchSessionView.swift in Sources */,
+				B506B2CE93D0BC0DD018551A /* TemplateEditorView.swift in Sources */,
+				72F44AAC1A22FBFEE92F0045 /* TemplateSnapshot.swift in Sources */,
+				1BF62592AF860EC26696A0E5 /* TodayView.swift in Sources */,
+				35004CC72710D0533DED0D0A /* WatchSnapshotModels.swift in Sources */,
+				947122BA3FB90126FFEC71F0 /* WatchSyncService.swift in Sources */,
+				CB55AAAF9207CC338B208B58 /* WorkoutBuddyInsightSnapshot.swift in Sources */,
+				861A544994BF0B385ECC9286 /* WorkoutDrafts.swift in Sources */,
+				55CDE09CC7727E78ED6EEC58 /* WorkoutSessionView.swift in Sources */,
+				838BB23E2FD2DAE645706016 /* WorkoutSessionViewModel.swift in Sources */,
+				0FDDF8D7FBF8A1643FDB5F23 /* WorkoutSummarySheet.swift in Sources */,
+				A39DF328ACCF9D72E91C172C /* WorkoutTemplate.swift in Sources */,
+				6B49BAAC55B222C7B874A0DC /* WorkoutTemplateKind.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF613C9B4AABCD08CE889C85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22938A87BA41627EB73297EA /* AppModelTests.swift in Sources */,
+				4B6229B9EAD6AA8567735A9B /* AtroAppTests.swift in Sources */,
+				C1B2506279DA0645BEA0CF41 /* CalendarEventBuilderTests.swift in Sources */,
+				98E38CE35787621E1BD0B5D9 /* DataResetServiceTests.swift in Sources */,
+				8CBC4FF355E518D0FAB99732 /* GuidedStretchCoordinatorTests.swift in Sources */,
+				1748C82CFD69C51139BF20A6 /* HealthKitServiceTests.swift in Sources */,
+				30438548CD86B6E6C06F6BC3 /* ICSExporterTests.swift in Sources */,
+				60FD0433E7DD527F5D3E99C6 /* JournalFilterTests.swift in Sources */,
+				0920B5906A8F0AD2CC01EB7C /* StreakCalculatorTests.swift in Sources */,
+				C6CCCC0743D937C3357D2C9B /* TemplateDraftTests.swift in Sources */,
+				800E479B9D35225A781CD666 /* WorkoutDraftFactoryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9BFAC045B5BF6CB0AA87135 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EDED0019C152220EE1D532A /* AtroWatchApp.swift in Sources */,
+				36B705DC1D24FE17CF603222 /* StreakWidgetSnapshot.swift in Sources */,
+				24593898E05F85812A4C94E2 /* StreakWidgetSnapshotStore.swift in Sources */,
+				B909FDF31C4FA34CE9BD10B4 /* WatchAppModel.swift in Sources */,
+				8D48FDE80F075FE80B8D5F5F /* WatchHomeView.swift in Sources */,
+				541C8E59199B68B59832E027 /* WatchSnapshotModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA921CD83E49BB7BFAF7AEF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67B7AF38F0F4D05CAE8AA869 /* AtroStreakWidget.swift in Sources */,
+				4D300DDA3C0D9EC7474C3158 /* AtroStreakWidgetView.swift in Sources */,
+				4530C94B8C8025B8C5081A25 /* AtroWidgetIntents.swift in Sources */,
+				D20AD62539ABF9BE90204227 /* AtroWidgetsBundle.swift in Sources */,
+				BDC329F3987D4ECBC61B433F /* StreakWidgetSnapshot.swift in Sources */,
+				D73C84E9C7C2A3F7B63C4743 /* StreakWidgetSnapshotStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F166B1FA6823C3F983C4A78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CD7CC55E1ABD5CF3F10DA9C /* Atro */;
+			targetProxy = CACAF04A975D6C683DC1BF4F /* PBXContainerItemProxy */;
+		};
+		EE979FCD865D0672AB11FB80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1893A72C3BB841FD05BA187F /* AtroWidgets */;
+			targetProxy = C8DAA9DF7379F44CFE73E31B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		21D04CC3F94C01159D7CEDE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = J29924Y5UF;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2F9ADF683CAB02BC945A723D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AtroWidgets/Resources/AtroWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AtroWidgets/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.Atro.widgets;
+				PRODUCT_NAME = "Atro Widgets";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		5524803835791FFC3ECCB5AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Atro/Resources/Atro.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Atro/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.Atro;
+				PRODUCT_NAME = Atro;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		63DC6CD179F62DD324F44388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Atro/Resources/Atro.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Atro/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.Atro;
+				PRODUCT_NAME = Atro;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8B51A83FE30EC3C19E1A674F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.AtroTests;
+				PRODUCT_NAME = AtroTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Atro.app/Atro";
+			};
+			name = Debug;
+		};
+		A9975806F6F8EA5C63A8E68F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.AtroTests;
+				PRODUCT_NAME = AtroTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Atro.app/Atro";
+			};
+			name = Release;
+		};
+		AB095E489D010759CFF1549A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Atro;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.codex.Atro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.Atro.watchkitapp;
+				PRODUCT_NAME = "Atro Watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		CBB477C166BC3D391CDDF9E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AtroWidgets/Resources/AtroWidgets.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AtroWidgets/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.Atro.widgets;
+				PRODUCT_NAME = "Atro Widgets";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CE191C7944AE6CE8C66F79E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = J29924Y5UF;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F021468B1E13F6E2D0F81DB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Atro;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.codex.Atro;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.Atro.watchkitapp;
+				PRODUCT_NAME = "Atro Watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6080290F4A21492BF34E8E4A /* Build configuration list for PBXNativeTarget "AtroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B51A83FE30EC3C19E1A674F /* Debug */,
+				A9975806F6F8EA5C63A8E68F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		77B41EDB3571E135E8220C74 /* Build configuration list for PBXNativeTarget "Atro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63DC6CD179F62DD324F44388 /* Debug */,
+				5524803835791FFC3ECCB5AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A5924065D1A2C7D2F5A9AB63 /* Build configuration list for PBXNativeTarget "AtroWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F021468B1E13F6E2D0F81DB6 /* Debug */,
+				AB095E489D010759CFF1549A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A74096DFDDD0F0AD9EF708C6 /* Build configuration list for PBXProject "Atro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE191C7944AE6CE8C66F79E0 /* Debug */,
+				21D04CC3F94C01159D7CEDE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C020958D98B418B67CCC1362 /* Build configuration list for PBXNativeTarget "AtroWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBB477C166BC3D391CDDF9E1 /* Debug */,
+				2F9ADF683CAB02BC945A723D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9934BA9F89DE73F1090FFA7A /* Project object */;
+}
